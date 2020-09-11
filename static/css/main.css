@@ -81,9 +81,6 @@ main{
   transition: margin var(--transition-timing);
 }
 
-h1, h2, h3{
-}
-
 article{
   margin: 1em 0 2em 0;
 }
