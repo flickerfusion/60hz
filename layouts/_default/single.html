@@ -4,6 +4,7 @@
       {{ if eq .Type "newsletters" }}
               <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
               <h2>{{ .Title }}</h2>
+              {{ .Content }}
 
             {{ else if eq .Type "links" }}
               <h1><a href="{{ .Params.Link }}">{{ .Title }}</a></h1>
