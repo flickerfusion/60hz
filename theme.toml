@@ -1,0 +1,12 @@
+name = "Flicker Fusion"
+license = "MIT"
+licenselink = "https://github.com/vimux/blank/blob/master/LICENSE"
+description = "Hugo theme for flickerfusion.com"
+homepage = "https://github.com/flickerfusion.com"
+tags = ["blog"]
+features = ["blog"]
+min_version = "0.20"
+
+[author]
+  name = "Jim Ray"
+  homepage = "https://flickerfusion.com"
