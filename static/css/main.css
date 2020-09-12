@@ -165,6 +165,21 @@ article.links h1{
   text-decoration-thickness: .1em;
 }
 
+#paginator{
+  font-family: var(--font-hed);
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+footer{
+  border-top: 2px solid var(--color-primary-light);
+  margin-top: 1em;
+  padding: 2em 0 2em 0;
+  font-family: var(--font-hed);
+  font-weight: 700;
+}
+
 @media screen and (min-width: 48em){
   header{
     margin: 0 3em;
@@ -185,6 +200,7 @@ article.links h1{
   article.posts h1 a{
     padding-bottom: 6px;
   }
+
 }
 
 @media screen and (min-width: 64em){
@@ -215,5 +231,9 @@ article.links h1{
 
   article.posts h1 a{
     border-bottom-color: var(--color-primary-dark);
+  }
+
+  footer{
+    border-top: 2px solid var(--color-primary-dark);
   }
 }
