@@ -20,7 +20,7 @@
 		{{ if $i }}, {{ end }}
 			{
 				"id": "{{ .Permalink }}",
-				"title": "{{ .Title }}",
+				"title": "{{ .Title | markdownify }}",
 				"content_html": {{ .Content | jsonify }},
 				"url": "{{ .Permalink }}",
         {{ if isset .Params "link" }}"external_url": "{{ .Params.Link }}",{{ end }}
