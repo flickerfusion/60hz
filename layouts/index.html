@@ -8,7 +8,7 @@
         <h2>{{ .Title | markdownify }}</h2>
 
       {{ else if eq .Type "links" }}
-        <h1><a href="{{ .Params.Link }}">{{ .Title }}</a> <a class="ff_permalink" href="{{ .Permalink }}">❃</a></h1>
+        <h1><a href="{{ .Params.Link }}">{{ .Title }}</a>&nbsp;<a class="ff_permalink" href="{{ .Permalink }}">❃</a></h1>
         {{ .Content }}
 
       {{ else }}

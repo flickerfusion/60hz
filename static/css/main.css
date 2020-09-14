@@ -215,6 +215,14 @@ footer{
     padding-bottom: 6px;
   }
 
+  article.links h1 a.ff_permalink{
+    font-size: .6em;
+  }
+
+  article a.footnote-backref{
+    font-size: .6em;
+  }
+
 }
 
 @media screen and (min-width: 64em){
@@ -247,11 +255,7 @@ footer{
     border-bottom-color: var(--color-primary-dark);
   }
 
-  article.links h1 a.ff_permalink{
-    /* color: var(--color-primary-light);*/
-  }
-
-  article.links h1:hover a.ff_permalink{
+  article.links h1 a.ff_permalink:hover{
     color: var(--color-primary-dark);
   }
 
