@@ -8,8 +8,8 @@
         <h2>{{ .Title }}</h2>
 
       {{ else if eq .Type "links" }}
-        <h1><a href="{{ .Params.Link }}">{{ .Title }}</a></h1>
-        {{ .Content }}<a class="ff_permalink" href="{{ .Permalink }}">#</a>
+        <h1><a href="{{ .Params.Link }}">{{ .Title }}</a><a class="ff_permalink" href="{{ .Permalink }}">⫘</a></h1>
+        {{ .Content }}
 
       {{ else }}
         <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
