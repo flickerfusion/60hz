@@ -115,18 +115,7 @@ article p{
 
 article p a{
   text-decoration: underline;
-  text-decoration-thickness: .1em;
-}
-
-article p a:hover{
-  background: radial-gradient(var(--color-accent3),var(--color-tertiary2));
-  background-clip: border-box;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  text-shadow: none;
-  text-decoration-color: var(--color-accent3);
+  text-decoration-thickness: .075em;
 }
 
 article.posts{
@@ -244,7 +233,7 @@ footer{
     color: var(--color-primary-dark);
   }
 
-  a{
+  a, article p a{
     color: var(--color-primary-dark);
     text-decoration-color: var(--color-accent1);
   }
