@@ -141,6 +141,7 @@ article.posts h1 a{
   border-bottom: 3px solid var(--color-primary-light);
   display: inline;
   padding-bottom: 5px;
+  padding-right: 2px;
   text-decoration: none;
 }
 
@@ -198,6 +199,7 @@ footer{
   header{
     margin: 0 3em;
   }
+
   main{
     margin: 1.6em 3em;
   }
@@ -208,11 +210,11 @@ footer{
   }
 
   article h1, article.links h1{
-    font-size: 2em;
+    font-size: 1.75em;
   }
 
   article.posts h1 a{
-    padding-bottom: 6px;
+    padding-bottom: 5px;
   }
 
   article.links h1 a.ff_permalink{
