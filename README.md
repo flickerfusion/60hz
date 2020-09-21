@@ -8,8 +8,8 @@ Then
 
 ```
 cd flickerfusion.com/themes/60hz
-git checkout master
-git pull origin master
+git checkout main
+git pull origin main
 ```
 
 Then, stage the submodule and commit that:
@@ -23,5 +23,5 @@ git commit -m "Updating the latest 60hz"
 Now push flickerfusion.com to gh
 
 ```
-git push origin master
+git push origin main
 ```
