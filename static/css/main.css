@@ -64,7 +64,6 @@ header nav{
   display: flex;
   flex: 1;
   margin: .5em 0 0 0;
-  padding-bottom: .25em;
 }
 
 header nav ul{
@@ -194,13 +193,21 @@ footer{
     flex-direction: row;
   }
 
+  header h1{
+    flex: 20%;
+  }
+
   header nav{
     margin-left: .75em;
   }
 
   header nav ul li{
-    padding-top: 1.5em;
+    padding-top: 1.9em;
     padding-bottom: 0;
+  }
+
+  header nav ul li a:hover{
+    border-bottom: 4px solid var(--color-primary-light);
   }
 
   main{
@@ -234,6 +241,11 @@ footer{
   header{
     margin: 0 6em;
   }
+
+  header h1{
+    flex: 40%;
+  }
+
   main{
     margin: 3em 6em 2em 6em;
     max-width: 42em;
@@ -248,6 +260,10 @@ footer{
   }
 
   header {
+    border-bottom-color: var(--color-primary-dark);
+  }
+
+  header nav ul li a:hover{
     border-bottom-color: var(--color-primary-dark);
   }
 
