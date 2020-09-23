@@ -121,6 +121,18 @@ article p a{
   text-decoration-thickness: .075em;
 }
 
+article blockquote{
+  border-left: 2px solid var(--color-primary-light-gray);
+  padding-left: 1em;
+  margin: 0 1em 0 1em;
+}
+
+article blockquote p{
+  font-size: 1em;
+  color: var(--color-tertiary2);
+  color: var(--color-primary-light-gray);
+}
+
 article.posts{
   margin-bottom: 4em;
 }
@@ -214,7 +226,6 @@ footer{
     margin: 3em 3em 1.6em 3em;
   }
 
-
   article h1, article.links h1{
     font-size: 1.5em;
   }
@@ -230,6 +241,10 @@ footer{
   article p{
     font-size: 1.2em;
     line-height: 1.6;
+  }
+
+  article blockquote p{
+    font-size: 1.1em;
   }
 
   article a.footnote-backref{
@@ -270,6 +285,10 @@ footer{
   a, article p a{
     color: var(--color-primary-dark);
     text-decoration-color: var(--color-accent1);
+  }
+
+  article blockquote p{
+    color: var(--color-tertiary2);
   }
 
   article.posts h1{
