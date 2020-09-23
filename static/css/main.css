@@ -253,17 +253,37 @@ footer{
 }
 
 @media screen and (min-width: 64em){
+  /* gridding */
+  body{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: [left-margin] auto [the-business] 42em [sidebar] 22em [right-margin] auto;
+    grid-template-rows: auto 10em;
+  }
+
   header{
-    margin: 0 6em;
+    margin: 0;
+    grid-column-start: sidebar;
+    grid-row-start: 1;
+    flex-direction: column;
+  }
+
+  footer{
+    grid-row-start: 2;
+    grid-column-start: left-margin;
+    grid-column-end: 5;
   }
 
   header h1{
-    flex: 40%;
+    flex: 1;
   }
 
   main{
-    margin: 3em 6em 2em 6em;
-    max-width: 42em;
+    margin: 0;
+    padding: 0;
+    grid-column-start: the-business;
+    grid-row-start: 1;
   }
 }
 
