@@ -209,6 +209,11 @@ footer{
     flex: 20%;
   }
 
+  header .wrapper{
+    display: flex;
+    flex: 1;
+  }
+
   header nav{
     margin-left: .75em;
   }
@@ -267,6 +272,23 @@ footer{
     grid-column-start: sidebar;
     grid-row-start: 1;
     flex-direction: column;
+    position: relative;
+  }
+
+  header div.wrapper{
+    position: fixed;
+  }
+
+  header h1{
+
+  }
+
+  header nav{
+    margin: 1em 0 0 0;
+  }
+
+  header nav ul li{
+    padding: 0;
   }
 
   footer{
@@ -281,7 +303,7 @@ footer{
 
   main{
     margin: 0;
-    padding: 0;
+    padding: 0 2em 0 0;
     grid-column-start: the-business;
     grid-row-start: 1;
   }
