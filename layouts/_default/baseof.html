@@ -25,6 +25,41 @@
   {{ with .OutputFormats.Get "RSS" -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
   {{- end }}
+
+  <!-- siiiiiigh Twitter -->
+  <meta name="twitter:card" content="summary" />
+  {{ if (isset $.Site.Params "twitter") }}
+    {{ if (isset $.Site.Params.Twitter "site") }}
+      <meta name="twitter:site" content="{{ $.Site.Params.Twitter.site }}" />
+    {{ end }}
+    {{ if (isset $.Site.Params.Twitter "creator") }}
+      <meta name="twitter:creator" content="{{ $.Site.Params.Twitter.creator }}" />
+    {{ end }}
+  {{ end }}
+
+  <!-- fine, here's some OG garbage -->
+  <meta property="og:locale" content="{{ $.Site.Language.Lang }}" />
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  <meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta property="og:site_name" content="{{ $.Site.Title }}" />
+  {{ if and (not .IsHome) (isset .Params "cover") }}
+    <meta property="og:image" content="{{ .Param "cover" | absURL }}">
+  {{ else }}
+    {{ if isset $.Site.Params "favicon" }}
+      <meta property="og:image" content="{{ $.Site.Params.favicon | absURL }}">
+      <meta property="og:image:width" content="2048">
+      <meta property="og:image:height" content="1024">
+    {{ end }}
+  {{ end }}
+
+  {{ range .Params.categories }}
+    <meta property="article:section" content="{{ . }}" />
+  {{ end }}
+  {{ if isset .Params "date" }}
+    <meta property="article:published_time" content="{{ time .Date }}" />
+  {{ end }}
 </head>
 <body>
 	{{ partial "header" . }}
