@@ -1,8 +1,70 @@
 {{ define "main" }}
+
+{{/*
+<!-- Groups content by month according to the "date" field in front matter -->
+{{ range .Pages.GroupByDate "2006-01" }}
+<h3>{{ .Key }}</h3>
+<ul>
+    {{ range .Pages }}
+    <li>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}
+
+{{ range where .Pages.ByDate "Section" "events" }}
+
+{{ range (.Paginate (.Data.Pages.GroupByDate "2006")).PageGroups  }}
+
+{{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+
+{{ range $paginator.Pages.GroupByDate "2006 Jan" }}
+
+{{ $paginator := .Paginate (after 10 (where .Data.Pages "Type" "post").GroupByDate "2006 Jan") }}
+
+{{ range $paginator.Pages }}
+//show posts
+{{end}}
+
+*/}}
+
 	<main>
-		{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-		{{ range $paginator.Pages }}
-      <article class="{{ .Type }}">
+		{{ $paginator := .Paginate (where .Data.Pages "Type" "in" .Site.Params.mainSections) }}
+
+      {{ range $paginator.Pages }}
+
+      {{ if eq .Type "newsletters "}}
+        Newsletter:
+        {{ .Title }}
+        {{ .Permalink }} </br>
+      {{ end }}
+
+      {{/**
+        <article class="{{ .Type }}">
+          {{ if eq .Type "newsletters" }}
+            <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
+            <h2>{{ .Title | markdownify }}</h2>
+
+          {{ else if eq .Type "links" }}
+          <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="ff_permalink" href="{{ .Permalink }}">❃</a></h1>
+          {{ .Content }}
+
+          {{ else }}
+          <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+          <time title={{ .Date.Format "Published at 3:04pm on January 2, 2006. A Monday." }}><a href="{{ .Permalink }}">{{ .Date.Format "January 2, 2006" }}</a></time>
+          {{ .Content }}
+          {{ range .Params.tags }}
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+        {{ end }}
+        </article>
+        */}}
+
+    {{ end }}
+
+      {{/* <article class="{{ .Type }}">
       {{ if eq .Type "newsletters" }}
         <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
         <h2>{{ .Title | markdownify }}</h2>
@@ -21,6 +83,6 @@
       {{ end }}
       </article>
 		{{ end }}
-		{{ partial "pagination.html" . }}
+		{{ partial "pagination.html" . }} */}}
 	</main>
 {{ end }}
