@@ -1,45 +1,21 @@
 {{ define "main" }}
-
-{{/*
-<!-- Groups content by month according to the "date" field in front matter -->
-{{ range .Pages.GroupByDate "2006-01" }}
-<h3>{{ .Key }}</h3>
-<ul>
-    {{ range .Pages }}
-    <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
-
-{{ range where .Pages.ByDate "Section" "events" }}
-
-{{ range (.Paginate (.Data.Pages.GroupByDate "2006")).PageGroups  }}
-
-{{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-
-{{ range $paginator.Pages.GroupByDate "2006 Jan" }}
-
-{{ $paginator := .Paginate (after 10 (where .Data.Pages "Type" "post").GroupByDate "2006 Jan") }}
-
-{{ range $paginator.Pages }}
-//show posts
-{{end}}
-
-*/}}
-
 	<main>
-		{{ $paginator := .Paginate (where .Data.Pages "Type" "in" .Site.Params.mainSections) }}
+		{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
 
-      {{ range $paginator.Pages }}
+      {{ range $paginator.Pages.GroupByDate "2006-01-02" }}
 
-      {{ if eq .Type "newsletters "}}
-        Newsletter:
+        <section id="{{ .Key }}">
+        <h2>{{ .Key }}</h2>
+
+        {{ range .Pages }}
+
         {{ .Title }}
         {{ .Permalink }} </br>
-      {{ end }}
+
+
+        {{ end }}
+        </section>
+
 
       {{/**
         <article class="{{ .Type }}">
