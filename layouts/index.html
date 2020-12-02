@@ -1,55 +1,22 @@
 {{ define "main" }}
-	<main>
-		{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+<main>
+	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
 
-      {{ range $paginator.Pages.GroupByDate "2006-01-02" }}
+    {{ range $paginator.Pages.GroupByDate "2006-01-02" }}
+      <section id="{{ .Key }}">
+      <h2>{{ .Key }}</h2>
 
-        <section id="{{ .Key }}">
-        <h2>{{ .Key }}</h2>
+      {{ range .Pages }}
+      <article class="{{ .Type }}">
+        {{ if eq .Type "newsletters" }}
+          <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
+          <h2>{{ .Title | markdownify }}</h2>
 
-        {{ range .Pages }}
-
-        {{ .Title }}
-        {{ .Permalink }} </br>
-
-
-        {{ end }}
-        </section>
-
-
-      {{/**
-        <article class="{{ .Type }}">
-          {{ if eq .Type "newsletters" }}
-            <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
-            <h2>{{ .Title | markdownify }}</h2>
-
-          {{ else if eq .Type "links" }}
-          <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="ff_permalink" href="{{ .Permalink }}">❃</a></h1>
-          {{ .Content }}
-
-          {{ else }}
-          <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
-          <time title={{ .Date.Format "Published at 3:04pm on January 2, 2006. A Monday." }}><a href="{{ .Permalink }}">{{ .Date.Format "January 2, 2006" }}</a></time>
-          {{ .Content }}
-          {{ range .Params.tags }}
-          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-          {{ end }}
-        {{ end }}
-        </article>
-        */}}
-
-    {{ end }}
-
-      {{/* <article class="{{ .Type }}">
-      {{ if eq .Type "newsletters" }}
-        <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
-        <h2>{{ .Title | markdownify }}</h2>
-
-      {{ else if eq .Type "links" }}
-        <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="ff_permalink" href="{{ .Permalink }}">❃</a></h1>
+        {{ else if eq .Type "links" }}
+        <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="ff_permalink" href="{{ .Permalink }}">∞</a></h1>
         {{ .Content }}
 
-      {{ else }}
+        {{ else }}
         <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
         <time title={{ .Date.Format "Published at 3:04pm on January 2, 2006. A Monday." }}><a href="{{ .Permalink }}">{{ .Date.Format "January 2, 2006" }}</a></time>
         {{ .Content }}
@@ -58,7 +25,9 @@
         {{ end }}
       {{ end }}
       </article>
-		{{ end }}
-		{{ partial "pagination.html" . }} */}}
-	</main>
+      {{ end }}
+      </section>
+
+  {{ end }}
+</main>
 {{ end }}
