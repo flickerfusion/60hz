@@ -7,6 +7,7 @@
   src: url('../fonts/hkgrotesk-semibold-legacy.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -14,11 +15,13 @@
   src: url('../fonts/hkgrotesk-semibold-legacy-italic.woff2') format('woff2');
   font-weight: normal;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'League Spartan';
   src: url('../fonts/league-spartan-bold.woff2') format('woff2');
+  font-display: swap;
 }
 
 @font-face {
@@ -70,7 +73,7 @@
 
   --font-hed: var(--font-hk-grotesk);
   --font-body: var(--font-pt-astra);
-  --font-default-size: clamp(16px, 2vw + 4px, 22px);
+  --font-default-size: clamp(18px, 2vw + 4px, 22px);
 
   --eigengrau: #16161D;
   --white: #FFF;
@@ -139,7 +142,7 @@ section.day{
 }
 
 section.day > time{
-  background: var(--color-accent1);
+  background: var(--color-primary-dark);
   color: var(--color-primary-light);
   font-family: var(--font-league-spartan);
   font-weight: normal;
@@ -148,8 +151,6 @@ section.day > time{
   letter-spacing: .2rem;
   text-transform: uppercase;
   padding: 0 .5rem .2rem .5rem;
-  position: -webkit-sticky;
-  position: sticky;
   top: 1em;
 
   -webkit-font-smoothing: antialiased;
@@ -158,7 +159,7 @@ section.day > time{
 }
 
 section.day article{
-  padding: 1em;
+  padding: 1em 0;
   margin: 0 auto;
   max-width: 40em;
 }
@@ -168,21 +169,56 @@ section.day article h1{
   font-size: 1.25em;
   font-weight: normal;
   line-height: 1.1;
+  padding: 0 1em;
+}
+
+section.day article h1 a.ff_permalink{
+  text-decoration: none;
+  display: none;
+}
+
+section.day article h1:hover a.ff_permalink{
+  display: initial;
+}
+
+/* don't hide the permalinks on mobile. Not a perfect solution but a solution nonetheless */
+/* https://hover-pointer-media-query.glitch.me/ */
+@media(any-pointer: coarse){
+  section.day article h1 a.ff_permalink{
+    display: initial;
+  }
 }
 
 section.day article p{
   font-size: 1em;
   line-height: 1.3125;
+  padding: 0 1em;
 }
 
 section.day article blockquote{
-  margin: 0;
-  padding: 0 1.5rem 0 1rem;
+  margin: 1.5rem 0;
+  padding: 0 1.5rem 0 .75rem;
+  color: var(--color-tertiary1);
+  background: url("../images/pullquote.svg") no-repeat .5rem 0;
+  /* border: 1px solid transparent; */
+  /* border: 1px solid #F00; */
+}
+
+article section.footnotes{
+  padding: .25rem 0 1rem 0;
+}
+
+article section.footnotes hr{
+  display: none;
+}
+
+article section.footnotes li{
+  font-size: .9em;
   color: var(--color-tertiary1);
 }
 
 #paginator{
-  margin: 1em 0 2em 0;
+  margin: 1rem 0 2rem 0;
   text-align: center;
 
 }
