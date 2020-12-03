@@ -169,7 +169,7 @@ section.day article h1{
   font-size: 1.25em;
   font-weight: normal;
   line-height: 1.1;
-  padding: 0 1em;
+  padding: 0 1rem;
 }
 
 section.day article h1 a.ff_permalink{
@@ -192,12 +192,12 @@ section.day article h1:hover a.ff_permalink{
 section.day article p{
   font-size: 1em;
   line-height: 1.3125;
-  padding: 0 1em;
+  padding: 0 1rem;
 }
 
 section.day article blockquote{
   margin: 1.5rem 0;
-  padding: 0 1.5rem 0 .75rem;
+  padding: 0 1.5rem 0 1rem;
   color: var(--color-tertiary1);
   background: url("../images/pullquote.svg") no-repeat .5rem 0;
   /* border: 1px solid transparent; */
