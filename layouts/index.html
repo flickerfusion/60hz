@@ -3,8 +3,8 @@
 	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
 
     {{ range $paginator.Pages.GroupByDate "2006-01-02" }}
-      <section id="{{ .Key }}">
-      <h2>{{ .Key }}</h2>
+      <section id="{{ .Key }}" class="day">
+      <time datetime="{{ dateFormat "2006-01-02" .Key }}">{{ dateFormat "January 2" .Key }}</time>
 
       {{ range .Pages }}
       <article class="{{ .Type }}">
@@ -18,7 +18,6 @@
 
         {{ else }}
         <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
-        <time title={{ .Date.Format "Published at 3:04pm on January 2, 2006. A Monday." }}><a href="{{ .Permalink }}">{{ .Date.Format "January 2, 2006" }}</a></time>
         {{ .Content }}
         {{ range .Params.tags }}
         <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
@@ -27,7 +26,7 @@
       </article>
       {{ end }}
       </section>
-
   {{ end }}
+  {{ partial "pagination" . }}
 </main>
 {{ end }}
