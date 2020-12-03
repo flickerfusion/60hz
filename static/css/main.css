@@ -70,7 +70,7 @@
 
   --font-hed: var(--font-hk-grotesk);
   --font-body: var(--font-pt-astra);
-  --font-default-size: clamp(1rem, 2vw + 4px, 1.375rem);
+  --font-default-size: clamp(16px, 2vw + 4px, 22px);
 
   --eigengrau: #16161D;
   --white: #FFF;
@@ -88,7 +88,6 @@
 
 html{
   scroll-behavior: smooth; /* (featuring Rob Thomas of Matchbox Twenty) */
-  font-size: var(--font-default-size);
 }
 
 body{
@@ -96,6 +95,7 @@ body{
   color: var(--color-primary-dark);
   font-family: var(--font-body);
   font-style: normal;
+  font-size: var(--font-default-size);
   font-variant: normal;
   line-height: 1.2;
   margin: 0;
@@ -111,6 +111,7 @@ a, a:visited{
   text-transform: uppercase;
   font-weight: 200;
   font-size: 5em;
+  font-style: italic;
   text-align: center;
   line-height: .9;
   -webkit-user-select: text;
@@ -225,6 +226,7 @@ section.day article blockquote{
   text-transform: uppercase;
   font-weight: 200;
   font-size: 3em;
+  font-style: italic;
   margin: 0 0 1.5em 0;
   text-align: center;
   line-height: .9;
