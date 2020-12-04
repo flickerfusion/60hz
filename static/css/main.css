@@ -92,6 +92,7 @@
 
 html{
   scroll-behavior: smooth; /* (featuring Rob Thomas of Matchbox Twenty) */
+  font-size: var(--font-default-size);
 }
 
 body{
@@ -99,7 +100,7 @@ body{
   color: var(--color-primary-dark);
   font-family: var(--font-body);
   font-style: normal;
-  font-size: var(--font-default-size);
+
   font-variant: normal;
   line-height: 1.2;
   margin: 0;
@@ -160,20 +161,21 @@ section.day > time{
 }
 
 section.day article{
-  padding: 1em 0;
+  padding: 1rem 0;
   margin: 0 auto;
-  max-width: 40em;
+  max-width: 40rem;
 }
 
 section.day article h1{
   font-family: var(--font-hed);
-  font-size: 1.25em;
+  font-size: 1.25rem;
   font-weight: normal;
   line-height: 1.1;
   padding: 0 1rem;
 }
 
 section.day article h1 a.ff_permalink{
+  font-size: 1rem;
   text-decoration: none;
   display: none;
 }
@@ -191,7 +193,7 @@ section.day article h1:hover a.ff_permalink{
 }
 
 section.day article p{
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.3125;
   padding: 0 1rem;
 }
@@ -232,7 +234,7 @@ article section.footnotes li{
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
-  padding: 0 1em;
+  padding: 0 1rem;
 }
 
 #boot{
@@ -252,7 +254,7 @@ article section.footnotes li{
 #boot h3{
   text-align: center;
   font-family: var(--font-league-spartan);
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: normal;
   letter-spacing: .2rem;
   text-transform: uppercase;
@@ -262,9 +264,9 @@ article section.footnotes li{
   font-family: var(--font-raleway);
   text-transform: uppercase;
   font-weight: 200;
-  font-size: 3em;
+  font-size: 3rem;
   font-style: italic;
-  margin: 0 0 1.5em 0;
+  margin: 0 0 1.5rem 0;
   text-align: center;
   line-height: .9;
 }
