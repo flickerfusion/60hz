@@ -10,7 +10,7 @@
       <article class="{{ .Type }}">
         {{ if eq .Type "newsletters" }}
           <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
-          <h2>{{ .Title | markdownify }}</h2>
+          <p>{{ .Title | markdownify }}</p>
 
         {{ else if eq .Type "links" }}
         <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="ff_permalink" href="{{ .Permalink }}" title="Link to this post from {{ .Date.Format "January 2, 2006 at 3:04pm" }}">∞</a></h1>

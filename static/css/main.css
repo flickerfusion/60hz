@@ -72,6 +72,7 @@
   --font-raleway: 'Raleway', var(--font-helvetica);
 
   --font-hed: var(--font-hk-grotesk);
+  --font-hed: var(--font-pt-astra);
   --font-body: var(--font-pt-astra);
   --font-default-size: clamp(18px, 2vw + 4px, 22px);
 
@@ -133,7 +134,7 @@ main{
 }
 
 section.day{
-  padding: 0;
+  padding: 0 0 2rem 0;
   margin: 0;
   width: 100%;
   position: relative;
