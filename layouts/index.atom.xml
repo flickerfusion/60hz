@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>{{ .Site.Title}}</title>
+  <link href="{{ .Site.BaseURL }}"/>
+  <updated>{{ now.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
+  {{ if isset .Site.Params "author" }}
+  <author>
+    <name>{{ .Site.Params.author }}</name>
+  </author>
+  {{ end }}
+  <id>{{ .Site.BaseURL }}</id>
+  {{ $items := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ range $i, $e := first 20 $items }}
+  <entry>
+    <title>{{ .Title | markdownify }}</title>
+    <link href="{{ .Permalink }}"/>
+    <id>{{ .Permalink }}</id>
+    <updated>{{ .Date }}</updated>
+
+    <content type="html"><![CDATA[{{ .Content | html }}]]></content>
+  </entry>
+  {{ end }}
+
+</feed>
