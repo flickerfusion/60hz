@@ -18,7 +18,7 @@
     <id>{{ .Permalink }}</id>
     <updated>{{ .Date }}</updated>
 
-    <content type="html"><![CDATA[ {{ .Content | html }} ]]></content>
+    <content type="html"><![CDATA[{{ .Content }}]]></content>
   </entry>
   {{ end }}
 
