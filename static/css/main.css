@@ -225,8 +225,8 @@ section.day article p{
 }
 
 section.day article blockquote{
-  margin: 1.5rem 0;
-  padding: 0 1.5rem 0 .5rem;
+  margin: 1.25rem 0;
+  padding: 0 1.5rem 0 .75rem;
   color: var(--color-tertiary1);
   background: url("../images/pullquote.svg") no-repeat .5rem 0;
 }

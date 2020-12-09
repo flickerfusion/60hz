@@ -15,18 +15,14 @@
           <p>{{ .Title | markdownify }}</p>
 
         {{ else if eq .Type "links" }}
-        <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="permalink" href="{{ .Permalink }}" title="Link to this post from {{ .Date.Format "January 2, 2006 at 3:04pm" }}">∞</a></h1>
-
-        {{ $permalink := .Permalink }}
-        {{ range $i, $element := split .Content "</p>" }}
-          {{ $element | safeHTML }} <a href="{{ $permalink }}#p{{ $i }}" class="permalink">#</a></p>
-        {{ end }}
+          <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="permalink" href="{{ .Permalink }}" title="Link to this post from {{ .Date.Format "January 2, 2006 at 3:04pm" }}">∞</a></h1>
+          {{ .Content }}
 
         {{ else }}
-        <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
-        {{ .Content }}
-        {{ range .Params.tags }}
-        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+          {{ .Content }}
+          {{ range .Params.tags }}
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
         {{ end }}
       {{ end }}
       </article>
