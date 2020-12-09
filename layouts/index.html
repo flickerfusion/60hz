@@ -4,7 +4,9 @@
 
     {{ range $paginator.Pages.GroupByDate "2006-01-02" }}
       <section id="{{ .Key }}" class="day">
-      <time datetime="{{ dateFormat "2006-01-02" .Key }}">{{ dateFormat "January 2" .Key }}</time>
+        <header>
+          <time datetime="{{ dateFormat "2006-01-02" .Key }}" class="calendar"><abbr>{{dateFormat "Jan" .Key }}</abbr><span class="month">{{ dateFormat "January" .Key }}</span> <span class="day">{{ dateFormat "2" .Key }}</span></time>
+        </header>
 
       {{ range .Pages }}
       <article class="{{ .Type }}">
@@ -13,8 +15,12 @@
           <p>{{ .Title | markdownify }}</p>
 
         {{ else if eq .Type "links" }}
-        <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="ff_permalink" href="{{ .Permalink }}" title="Link to this post from {{ .Date.Format "January 2, 2006 at 3:04pm" }}">∞</a></h1>
-        {{ .Content }}
+        <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="permalink" href="{{ .Permalink }}" title="Link to this post from {{ .Date.Format "January 2, 2006 at 3:04pm" }}">∞</a></h1>
+
+        {{ $permalink := .Permalink }}
+        {{ range $i, $element := split .Content "</p>" }}
+          {{ $element | safeHTML }} <a href="{{ $permalink }}#p{{ $i }}" class="permalink">#</a></p>
+        {{ end }}
 
         {{ else }}
         <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>

@@ -65,6 +65,7 @@
 }
 
 :root{
+  /* Fonts */
   --font-helvetica: Helvetica Neue, Helvetica, Arial, sans-serif;
   --font-hk-grotesk: 'HK Grotesk', var(--font-helvetica);
   --font-league-spartan: 'League Spartan', var(--font-helvetica);
@@ -76,6 +77,7 @@
   --font-body: var(--font-pt-astra);
   --font-default-size: clamp(18px, 2vw + 4px, 22px);
 
+  /* Colors */
   --eigengrau: #16161D;
   --white: #FFF;
   --color-primary-dark: #364159;
@@ -87,6 +89,14 @@
   --color-tertiary1: #405074;
   --color-tertiary2: #3C5579;
 
+  /* Layout */
+  /* Giving ch units a go, still a bit voodoo as Eric explains:
+  https://meyerweb.com/eric/thoughts/2018/06/28/what-is-the-css-ch-unit/ */
+  --max-width: 65ch;
+
+  /* grid-template-columns: 100px 1fr 1fr minmax(40ch, 65ch) 1fr; */
+
+  /* Animations */
   --transition-timing: 0.4s;
 }
 
@@ -143,7 +153,11 @@ section.day{
   border-bottom: 1px solid transparent; /* it's 2020 and we're still collapsing margins with hackery  */
 }
 
-section.day > time{
+section.day header{
+
+}
+
+time.calendar{
   background: var(--color-primary-dark);
   color: var(--color-primary-light);
   font-family: var(--font-league-spartan);
@@ -160,10 +174,14 @@ section.day > time{
   text-rendering: optimizeLegibility;
 }
 
+time.calendar abbr{
+  display: none;
+}
+
 section.day article{
   padding: 1rem 0;
   margin: 0 auto;
-  max-width: 40rem;
+  max-width: var(--max-width);
 }
 
 section.day article h1{
@@ -174,14 +192,22 @@ section.day article h1{
   padding: 0 1rem;
 }
 
-section.day article h1 a.ff_permalink{
-  font-size: 1rem;
+a.permalink{
   text-decoration: none;
   display: none;
 }
 
-section.day article h1:hover a.ff_permalink{
+a.permalink:hover{
+  text-decoration: underline;
+}
+
+h1:hover a.permalink, p:hover a.permalink{
   display: initial;
+}
+
+section.day article h1 a.permalink{
+  font-size: 1rem;
+
 }
 
 /* don't hide the permalinks on mobile. Not a perfect solution but a solution nonetheless */
@@ -200,11 +226,9 @@ section.day article p{
 
 section.day article blockquote{
   margin: 1.5rem 0;
-  padding: 0 1.5rem 0 1rem;
+  padding: 0 1.5rem 0 .5rem;
   color: var(--color-tertiary1);
   background: url("../images/pullquote.svg") no-repeat .5rem 0;
-  /* border: 1px solid transparent; */
-  /* border: 1px solid #F00; */
 }
 
 article section.footnotes{
@@ -273,7 +297,7 @@ article section.footnotes li{
 
 #boot p{
   margin: 1rem auto;
-  max-width: 36em;
+  max-width: var(--max-width);
   padding: 0 1rem;
   line-height: line-height: 1.3125;
 }
@@ -284,7 +308,17 @@ article section.footnotes li{
 
 
 @media screen and (min-width: 48em){
+  time.calendar abbr{
+    display: inherit;
+  }
 
+  time.calendar .month{
+    display: none;
+  }
+
+  time.calendar .day{
+    display: block;
+  }
 }
 
 @media screen and (min-width: 64em){
