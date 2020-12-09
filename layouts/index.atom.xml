@@ -4,11 +4,11 @@
   <title>{{ .Site.Title}}</title>
   <link href="{{ .Site.BaseURL }}"/>
   <updated>{{ now.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
-  {{ if isset .Site.Params "author" }}
-  <author>
-    <name>{{ .Site.Params.author }}</name>
-  </author>
-  {{ end }}
+  {{ with .Site.LanguageCode }}
+  <language>{{.}}</language>{{end}}
+  {{ with .Site.Params.author }}<author>
+    <name>{{.}}</name>
+  </author>{{ end }}
   <id>{{ .Site.BaseURL }}</id>
   {{ $items := where site.RegularPages "Type" "in" site.Params.mainSections }}
   {{ range $i, $e := first 20 $items }}
@@ -18,7 +18,7 @@
     <id>{{ .Permalink }}</id>
     <updated>{{ .Date }}</updated>
 
-    <content type="html"><![CDATA[{{ .Content | html }}]]></content>
+    <content type="html"><![CDATA[ {{ .Content | html }} ]]></content>
   </entry>
   {{ end }}
 
