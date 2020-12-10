@@ -13,7 +13,7 @@
   {{ $items := where site.RegularPages "Type" "in" site.Params.mainSections }}
   {{ range $i, $e := first 20 $items }}
   <entry>
-    <title>{{ .Title | markdownify }}</title>
+    <title type="html"><![CDATA[{{ .Title | markdownify }}]]></title>
     <link href="{{ .Permalink }}"/>
     <id>{{ .Permalink }}</id>
     <updated>{{ .Date }}</updated>

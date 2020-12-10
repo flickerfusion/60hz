@@ -1,9 +1,10 @@
 <nav id="paginator">
-{{ if .Paginator.HasPrev }}
-	<a href="{{ .Paginator.Prev.URL }}">Newer</a>
-{{ end }}
-{{ .Paginator.PageNumber }} <em>of</em> {{ .Paginator.TotalPages }}
 {{ if .Paginator.HasNext }}
-	<a href="{{ .Paginator.Next.URL }}">Older</a>
+  <a href="{{ .Paginator.Next.URL }}">Older Posts</a>
 {{ end }}
+ {{ if (and (.Paginator.HasNext) (.Paginator.HasPrev)) }} • {{ end }}
+{{ if .Paginator.HasPrev }}
+	<a href="{{ .Paginator.Prev.URL }}">Newer Posts</a>
+{{ end }}
+
 </nav>
