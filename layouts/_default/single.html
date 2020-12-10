@@ -1,23 +1,23 @@
 {{ define "main" }}
 	<main>
-		<article class="{{ .Type }}">
+    <article class="{{ .Type }}">
       {{ if eq .Type "newsletters" }}
-              <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
-              <h2>{{ .Title | markdownify }}</h2>
-              {{ .Content }}
+      <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
+      <p>{{ .Title | markdownify }}</p>
 
-            {{ else if eq .Type "links" }}
-              <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a></h1>
-              {{ .Content }}
+      {{ else if eq .Type "links" }}
+      <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a></h1>
+      <h2>This link was originally published on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time>.{{ with .Lastmod}} It was most recently updated on <time datetime="{{ dateFormat "2006-01-02" . }}">{{ dateFormat "January 2, 2006 at 3:04pm" . }}</time>{{end}}</h2>
+      {{ .Content }}
 
-            {{ else }}
-              <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
-              <time title={{ .Date.Format "Published at 3:04pm on January 2, 2006. A Monday." }}><a href="{{ .Permalink }}">{{ .Date.Format "January 2, 2006" }}</a></time>
-              {{ .Content }}
-              {{ range .Params.tags }}
-              <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-              {{ end }}
-            {{ end }}
-		</article>
+      {{ else }}
+      <h1>{{ .Title | markdownify }}</h1>
+      <h2>This post was originally published on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time>.{{ with .Lastmod}} It was most recently updated on <time datetime="{{ dateFormat "2006-01-02" . }}">{{ dateFormat "January 2, 2006 at 3:04pm" . }}</time>{{end}}</h2>
+      {{ .Content }}
+      {{ range .Params.tags }}
+      <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    {{ end }}
+    </article>
 	</main>
 {{ end }}
