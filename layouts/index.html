@@ -15,7 +15,7 @@
           <p>{{ .Title | markdownify }}</p>
 
         {{ else if eq .Type "links" }}
-          <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="permalink" href="{{ .Permalink }}" title="Link to this post from {{ .Date.Format "January 2, 2006 at 3:04pm" }}">∞</a></h1>
+          <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="permalink" href="{{ .Permalink }}" title="Link to this post on Flicker Fusion">∞</a> {{ with .Params.Via }}<a href="{{ . }}" title="[via]" class="vialink">◎</a>{{ end }}</h1>
           {{ .Content }}
 
         {{ else }}

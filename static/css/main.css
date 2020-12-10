@@ -204,20 +204,16 @@ article h2 time{
   font-style: italic;
 }
 
-a.permalink{
+a.permalink, a.vialink{
   text-decoration: none;
   display: none;
 }
 
-a.permalink:hover{
-  text-decoration: underline;
-}
-
-h1:hover a.permalink, p:hover a.permalink{
+h1:hover a.permalink, h1:hover a.vialink, p:hover a.permalink{
   display: initial;
 }
 
-section.day article h1 a.permalink{
+article h1 a.permalink, article h1 a.vialink{
   font-size: 1rem;
 
 }
