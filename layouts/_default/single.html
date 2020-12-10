@@ -7,7 +7,7 @@
 
       {{ else if eq .Type "links" }}
       <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a></h1>
-      <h2>This link was originally published on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time>.{{ with .Lastmod}} It was most recently updated on <time datetime="{{ dateFormat "2006-01-02" . }}">{{ dateFormat "January 2, 2006 at 3:04pm" . }}</time>{{end}}</h2>
+      <h2>This link was originally published on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time></h2>
       {{ .Content }}
 
       {{ else }}
