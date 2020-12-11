@@ -92,9 +92,7 @@
   /* Layout */
   /* Giving ch units a go, still a bit voodoo as Eric explains:
   https://meyerweb.com/eric/thoughts/2018/06/28/what-is-the-css-ch-unit/ */
-  --max-width: 65ch;
-
-  /* grid-template-columns: 100px 1fr 1fr minmax(40ch, 65ch) 1fr; */
+  --max-width: 85ch;
 
   /* Animations */
   --transition-timing: 0.4s;
@@ -140,9 +138,10 @@ a, a:visited{
 }
 
 main{
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   display: grid;
+  max-width: var(--max-width);
 }
 
 #single{
@@ -189,7 +188,6 @@ time.calendar abbr{
 article{
   padding: 1rem 0;
   margin: 0 auto;
-  max-width: var(--max-width);
 }
 
 article h1{
@@ -329,12 +327,17 @@ article section.footnotes li{
 
 @media screen and (min-width: 48em){
   section.day{
-    grid-template-columns: 6rem 1fr;
+    /* grid-template-columns: 6rem 1fr; */
+    grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
     grid-gap: 1rem;
   }
 
   section.day header{
     text-align: right;
+  }
+
+  section.day section{
+    grid-column-start: span 5;
   }
 
   article{

@@ -7,8 +7,8 @@
     <header>
       <time datetime="{{ dateFormat "2006-01-02" .Key }}" class="calendar"><abbr>{{dateFormat "Jan" .Key }}</abbr><span class="month">{{ dateFormat "January" .Key }}</span> <span class="day">{{ dateFormat "2" .Key }}</span></time>
     </header>
-    <section>
 
+    <section>
     {{ range .Pages }}
     <article class="{{ .Type }}">
       {{ if eq .Type "newsletters" }}
@@ -16,7 +16,7 @@
         <p>{{ .Title | markdownify }}</p>
 
       {{ else if eq .Type "links" }}
-        <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="permalink" href="{{ .Permalink }}" title="Link to this post on Flicker Fusion">∞</a> {{ with .Params.Via }}<a href="{{ . }}" title="[via]" class="vialink">◎</a>{{ end }}</h1>
+        <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="permalink" href="{{ .Permalink }}" title="Link to this post on Flicker Fusion">∞</a>{{ with .Params.Via }}&nbsp;<a href="{{ . }}" title="[via]" class="vialink">◎</a>{{ end }}</h1>
         {{ .Content }}
 
       {{ else }}
