@@ -2,32 +2,34 @@
 <main>
 	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
 
-    {{ range $paginator.Pages.GroupByDate "2006-01-02" }}
-      <section id="{{ .Key }}" class="day">
-        <header>
-          <time datetime="{{ dateFormat "2006-01-02" .Key }}" class="calendar"><abbr>{{dateFormat "Jan" .Key }}</abbr><span class="month">{{ dateFormat "January" .Key }}</span> <span class="day">{{ dateFormat "2" .Key }}</span></time>
-        </header>
+  {{ range $paginator.Pages.GroupByDate "2006-01-02" }}
+  <section id="{{ .Key }}" class="day">
+    <header>
+      <time datetime="{{ dateFormat "2006-01-02" .Key }}" class="calendar"><abbr>{{dateFormat "Jan" .Key }}</abbr><span class="month">{{ dateFormat "January" .Key }}</span> <span class="day">{{ dateFormat "2" .Key }}</span></time>
+    </header>
+    <section>
 
-      {{ range .Pages }}
-      <article class="{{ .Type }}">
-        {{ if eq .Type "newsletters" }}
-          <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
-          <p>{{ .Title | markdownify }}</p>
+    {{ range .Pages }}
+    <article class="{{ .Type }}">
+      {{ if eq .Type "newsletters" }}
+        <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
+        <p>{{ .Title | markdownify }}</p>
 
-        {{ else if eq .Type "links" }}
-          <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="permalink" href="{{ .Permalink }}" title="Link to this post on Flicker Fusion">∞</a> {{ with .Params.Via }}<a href="{{ . }}" title="[via]" class="vialink">◎</a>{{ end }}</h1>
-          {{ .Content }}
+      {{ else if eq .Type "links" }}
+        <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a>&nbsp;<a class="permalink" href="{{ .Permalink }}" title="Link to this post on Flicker Fusion">∞</a> {{ with .Params.Via }}<a href="{{ . }}" title="[via]" class="vialink">◎</a>{{ end }}</h1>
+        {{ .Content }}
 
-        {{ else }}
-          <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
-          {{ .Content }}
-          {{ range .Params.tags }}
-          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-        {{ end }}
+      {{ else }}
+        <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+        {{ .Content }}
+        {{ range .Params.tags }}
+        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
       {{ end }}
-      </article>
-      {{ end }}
-      </section>
+    {{ end }}
+    </article>
+    {{ end }}
+    </section>
+  </section>
   {{ end }}
   {{ partial "pagination" . }}
 </main>

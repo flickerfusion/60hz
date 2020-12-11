@@ -142,6 +142,11 @@ a, a:visited{
 main{
   margin: 0;
   padding: 0;
+  display: grid;
+}
+
+#single{
+  border-top: 1px solid var(--color-primary-dark);
 }
 
 section.day{
@@ -151,6 +156,9 @@ section.day{
   position: relative;
   border-top: 1px solid transparent; /* it's 2020 and we're still collapsing margins with hackery  */
   border-bottom: 1px solid transparent; /* it's 2020 and we're still collapsing margins with hackery  */
+
+  /* layout */
+  display: grid;
 }
 
 section.day header{
@@ -320,6 +328,23 @@ article section.footnotes li{
 
 
 @media screen and (min-width: 48em){
+  section.day{
+    grid-template-columns: 6rem 1fr;
+    grid-gap: 1rem;
+  }
+
+  section.day header{
+    text-align: right;
+  }
+
+  article{
+    padding: 0 0 2rem 0;
+  }
+
+  article h1{
+    margin-top: 0;
+  }
+
   time.calendar abbr{
     display: inherit;
   }
@@ -329,7 +354,7 @@ article section.footnotes li{
   }
 
   time.calendar .day{
-    display: block;
+
   }
 }
 
