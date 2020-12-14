@@ -262,10 +262,28 @@ article blockquote{
   background: url("../images/pullquote.svg") no-repeat .5rem 0;
 }
 
+article blockquote a, article blockquote a:visited{
+  color: var(--blue2);
+}
+
 article code{
   font-size: .75em;
 }
 
+/* footnotes */
+/* the reference in the text */
+
+article sup{
+  font-size: .7em;
+  padding-left: 2px;
+}
+
+article a.footnote-ref{
+  text-decoration: none;
+  color: var(--blue2);
+}
+
+/* the actual footnote at the end of the article */
 article section.footnotes{
   padding: .25rem 0 1rem 0;
 }
@@ -276,7 +294,12 @@ article section.footnotes hr{
 
 article section.footnotes li{
   font-size: .9em;
-  color: var(--color-tertiary1);
+  color: var(--blue2);
+}
+
+article section.footnotes a.footnote-backref{
+  font-size: .75rem;
+  text-decoration: none;
 }
 
 #paginator{
