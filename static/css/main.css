@@ -3,22 +3,6 @@
 /* Hi Brook! */
 
 @font-face {
-  font-family: 'HK Grotesk';
-  src: url('../fonts/hkgrotesk-semibold-legacy.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'HK Grotesk';
-  src: url('../fonts/hkgrotesk-semibold-legacy-italic.woff2') format('woff2');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'League Spartan';
   src: url('../fonts/league-spartan-bold.woff2') format('woff2');
   font-display: swap;
@@ -67,12 +51,10 @@
 :root{
   /* Fonts */
   --font-helvetica: Helvetica Neue, Helvetica, Arial, sans-serif;
-  --font-hk-grotesk: 'HK Grotesk', var(--font-helvetica);
   --font-league-spartan: 'League Spartan', var(--font-helvetica);
   --font-pt-astra: 'PT Astra Sans', var(--font-helvetica);
   --font-raleway: 'Raleway', var(--font-helvetica);
 
-  --font-hed: var(--font-hk-grotesk);
   --font-hed: var(--font-pt-astra);
   --font-body: var(--font-pt-astra);
   --font-default-size: clamp(18px, 2vw + 4px, 22px);
@@ -80,8 +62,27 @@
   /* Colors */
   --eigengrau: #16161D;
   --white: #FFF;
-  --color-primary-dark: #364159;
-  --color-primary-light: #F5F4F3;
+
+  /* Grays, dark to light */
+  --gray1: var(--eigengrau);
+  --gray2: #33333C;
+  --gray3: #86898D;
+  --gray4: #D8D8D7;
+  --gray5: #F3F4F5;
+
+  /* Blues, dark to light */
+  --blue1: #364159;
+  --blue2: #47587D;
+  --blue3: #586D9C;
+  --blue4: #91A7D6;
+  --blue5: #9EAFD6;
+
+  /* Orange, dark to light */
+
+  --color-primary-dark: var(--blue1);
+  --color-primary-light: var(--gray5);
+  --color-primary-light-rgb: 243,244,245;
+
   --color-accent1: #F1784B;
   --color-accent2: #75BF73;
   --color-accent3: #F2B366;
@@ -119,6 +120,16 @@ a, a:visited{
   color: var(--color-primary-dark);
 }
 
+#masthead{
+  background-color: #f3f4f5;
+  /* thanks, https://www.heropatterns.com ! */
+  background-image: linear-gradient(to top, var(--color-primary-light), rgba(var(--color-primary-light-rgb),0)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23364159' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  border-bottom: 1px solid var(--color-primary-light);
+  border-top: 1px solid var(--color-primary-dark);
+  margin: 0;
+  padding: 0;
+}
+
 #masthead h1{
   font-family: var(--font-raleway);
   text-transform: uppercase;
@@ -131,6 +142,8 @@ a, a:visited{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  margin: 3rem 0 4rem 0;
+  padding: 0;
 }
 
 #masthead h1 a{
@@ -145,7 +158,7 @@ main{
 }
 
 #single{
-  border-top: 1px solid var(--color-primary-dark);
+  /* border-top: 1px solid var(--color-primary-dark); */
 }
 
 section.day{
@@ -219,9 +232,12 @@ h1:hover a.permalink, h1:hover a.vialink, p:hover a.permalink{
   display: initial;
 }
 
-article h1 a.permalink, article h1 a.vialink{
+article h1 a.permalink{
   font-size: 1rem;
+}
 
+article h1 a.vialink{
+  font-size: .75rem;
 }
 
 /* don't hide the permalinks on mobile. Not a perfect solution but a solution nonetheless */
@@ -242,6 +258,7 @@ article blockquote{
   margin: 1.25rem 0;
   padding: 0 1.5rem 0 .75rem;
   color: var(--color-tertiary1);
+  color: var(--blue2);
   background: url("../images/pullquote.svg") no-repeat .5rem 0;
 }
 
