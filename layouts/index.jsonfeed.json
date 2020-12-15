@@ -31,6 +31,9 @@
         "content_html": {{ .Content | jsonify }},
         {{ end }}
 				"date_published": "{{ .Date }}"
+        {{ if .Lastmod }}
+        ,"date_modified": "{{ .Lastmod }}"
+        {{ end }}
 			}
 		{{ end }}
     ]

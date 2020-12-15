@@ -20,7 +20,11 @@
     <link href="{{ .Permalink }}"/>
     {{ end }}
     <id>{{ .Permalink }}</id>
+    {{ if .Lastmod }}
+    <updated>{{ .Lastmod }}</updated>
+    {{ else }}
     <updated>{{ .Date }}</updated>
+    {{ end }}
 
     <content type="html"><![CDATA[{{ .Content }}
     {{ if eq .Type "links"}}
