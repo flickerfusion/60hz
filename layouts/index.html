@@ -8,7 +8,7 @@
       <time datetime="{{ dateFormat "2006-01-02" .Key }}" class="calendar"><abbr>{{dateFormat "Jan" .Key }}</abbr><span class="month">{{ dateFormat "January" .Key }}</span> <span class="day">{{ dateFormat "2" .Key }}</span></time>
     </header>
 
-    <section>
+    <section class="articles">
     {{ range .Pages }}
     <article class="{{ .Type }}">
       {{ if eq .Type "newsletters" }}

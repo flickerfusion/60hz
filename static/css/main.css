@@ -83,17 +83,10 @@
   --color-primary-light: var(--gray5);
   --color-primary-light-rgb: 243,244,245;
 
-  --color-accent1: #F1784B;
-  --color-accent2: #75BF73;
-  --color-accent3: #F2B366;
-
-  --color-tertiary1: #405074;
-  --color-tertiary2: #3C5579;
-
   /* Layout */
   /* Giving ch units a go, still a bit voodoo as Eric explains:
   https://meyerweb.com/eric/thoughts/2018/06/28/what-is-the-css-ch-unit/ */
-  --max-width: 85ch;
+  --max-width: 65ch;
 
   /* Animations */
   --transition-timing: 0.4s;
@@ -122,6 +115,7 @@ a, a:visited{
 
 #masthead{
   background-color: #f3f4f5;
+  /* you kids with your multiple background gradients and SVGs */
   /* thanks, https://www.heropatterns.com ! */
   background-image: linear-gradient(to top, var(--color-primary-light), rgba(var(--color-primary-light-rgb),0)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23364159' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
   border-bottom: 1px solid var(--color-primary-light);
@@ -154,11 +148,11 @@ main{
   margin: 0 auto;
   padding: 0;
   display: grid;
-  max-width: var(--max-width);
+  max-width: calc(var(--max-width) + 20ch);
 }
 
-#single{
-  /* border-top: 1px solid var(--color-primary-dark); */
+#single article{
+  max-width: var(--max-width);
 }
 
 section.day{
@@ -199,6 +193,7 @@ time.calendar abbr{
 }
 
 article{
+  /* don't pad the article, pad the heds/grafs so the quotation will stick out. Yes, really */
   padding: 1rem 0;
   margin: 0 auto;
 }
@@ -243,7 +238,7 @@ article h1 a.vialink{
 /* don't hide the permalinks on mobile. Not a perfect solution but a solution nonetheless */
 /* https://hover-pointer-media-query.glitch.me/ */
 @media(any-pointer: coarse){
-  section.day article h1 a.ff_permalink{
+  section.day article h1 a.permalink{
     display: initial;
   }
 }
@@ -257,7 +252,6 @@ article p{
 article blockquote{
   margin: 1.25rem 0;
   padding: 0 1.5rem 0 .75rem;
-  color: var(--color-tertiary1);
   color: var(--blue2);
   background: url("../images/pullquote.svg") no-repeat .5rem 0;
 }
@@ -305,7 +299,6 @@ article section.footnotes a.footnote-backref{
 #paginator{
   margin: 1rem auto 2rem auto;
   text-align: center;
-
 }
 
 #paginator a{
@@ -376,7 +369,7 @@ article section.footnotes a.footnote-backref{
     text-align: right;
   }
 
-  section.day section{
+  section.day section.articles{
     grid-column-start: span 5;
   }
 
@@ -386,6 +379,14 @@ article section.footnotes a.footnote-backref{
 
   article h1{
     margin-top: 0;
+  }
+
+  article h1, article h2, article p{
+    padding-left: .25rem;
+  }
+
+  article blockquote{
+    background-position: 0 0;
   }
 
   time.calendar abbr{
