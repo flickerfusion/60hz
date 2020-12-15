@@ -14,11 +14,19 @@
   {{ range $i, $e := first 20 $items }}
   <entry>
     <title type="html"><![CDATA[{{ .Title | markdownify }}]]></title>
+    {{ if eq .Type "links" }}
+    <link href="{{ .Params.Link }}" />
+    {{ else }}
     <link href="{{ .Permalink }}"/>
+    {{ end }}
     <id>{{ .Permalink }}</id>
     <updated>{{ .Date }}</updated>
 
-    <content type="html"><![CDATA[{{ .Content }}]]></content>
+    <content type="html"><![CDATA[{{ .Content }}
+    {{ if eq .Type "links"}}
+    <p><a href="{{ .Permalink }}">{{ .Permalink }}</a></content></p>
+    {{ end }}
+    ]]></content>
   </entry>
   {{ end }}
 
