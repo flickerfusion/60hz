@@ -82,6 +82,7 @@
   --color-primary-dark: var(--blue1);
   --color-primary-light: var(--gray5);
   --color-primary-light-rgb: 243,244,245;
+  --color-primary-dark-rgb: 55,65,89;
 
   /* Layout */
   /* Giving ch units a go, still a bit voodoo as Eric explains:
@@ -114,7 +115,7 @@ a, a:visited{
 }
 
 #masthead{
-  background-color: #f3f4f5;
+  background-color: var(--color-primary-light);
   /* you kids with your multiple background gradients and SVGs */
   /* thanks, https://www.heropatterns.com ! */
   background-image: linear-gradient(to top, var(--color-primary-light), rgba(var(--color-primary-light-rgb),0)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23364159' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
@@ -147,8 +148,9 @@ a, a:visited{
 main{
   margin: 0 auto;
   padding: 0;
-  display: grid;
+  /* display: grid;
   max-width: calc(var(--max-width) + 20ch);
+  border: 1px solid #F00; */
 }
 
 #single article{
@@ -162,9 +164,6 @@ section.day{
   position: relative;
   border-top: 1px solid transparent; /* it's 2020 and we're still collapsing margins with hackery  */
   border-bottom: 1px solid transparent; /* it's 2020 and we're still collapsing margins with hackery  */
-
-  /* layout */
-  display: grid;
 }
 
 section.day header{
@@ -202,7 +201,7 @@ article h1{
   font-family: var(--font-hed);
   font-size: 1.25rem;
   font-weight: normal;
-  line-height: 1.1;
+  line-height: 1.3;
   padding: 0 1rem;
 }
 
@@ -220,11 +219,11 @@ article h2 time{
 
 a.permalink, a.vialink{
   text-decoration: none;
-  display: none;
+  visibility: hidden;
 }
 
 h1:hover a.permalink, h1:hover a.vialink, p:hover a.permalink{
-  display: initial;
+  visibility: initial;
 }
 
 article h1 a.permalink{
@@ -358,10 +357,11 @@ article section.footnotes a.footnote-backref{
 }
 
 
-@media screen and (min-width: 48em){
+@media screen and (min-width: 90ch){
   section.day{
-    /* grid-template-columns: 6rem 1fr; */
-    grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+    display: grid;
+    /* grid-template-columns: 1fr min(65ch, 100%); */
+    grid-template-columns: 1fr 65ch;
     grid-gap: 1rem;
   }
 
@@ -370,7 +370,8 @@ article section.footnotes a.footnote-backref{
   }
 
   section.day section.articles{
-    grid-column-start: span 5;
+    /* grid-column-start: span 5; */
+    grid-column: 2;
   }
 
   article{
@@ -383,6 +384,7 @@ article section.footnotes a.footnote-backref{
 
   article h1, article h2, article p{
     padding-left: .25rem;
+    padding-right: 2rem;
   }
 
   article blockquote{
@@ -402,11 +404,56 @@ article section.footnotes a.footnote-backref{
   }
 }
 
-@media screen and (min-width: 64em){
+@media screen and (min-width: 124ch){
+  section.day{
+    grid-template-columns: 1fr 65ch .5fr;
+  }
+  article h1, article h2, article p{
+    padding-right: 1rem;
+  }
+}
 
+@media screen and (min-width: 140ch){
+  section.day{
+    grid-template-columns: 1fr 65ch 1fr;
+  }
 }
 
 
 @media screen and (prefers-color-scheme: dark) {
+  body{
+    background: var(--color-primary-dark);
+    color: var(--color-primary-light);
+  }
 
+  a, a:visited{
+    color: var(--color-primary-light);
+  }
+
+  #masthead{
+    background-color: var(--color-primary-dark);
+    /* you kids with your multiple background gradients and SVGs */
+    /* thanks, https://www.heropatterns.com ! */
+    background-image: linear-gradient(to top, var(--color-primary-dark), rgba(var(--color-primary-dark-rgb),0)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23f3f4f5' fill-opacity='0.6' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    border-bottom: var(--color-primary-dark);
+  }
+
+  time.calendar{
+    background: var(--eigengrau);
+    color: var(--color-primary-light);
+  }
+
+
+  article blockquote p, article blockquote a, article blockquote a:visited, article section.footnotes li{
+    color: var(--gray4);
+  }
+
+  article blockquote{
+    background-image: url("../images/pullquote-dark.svg");
+  }
+
+  #boot{
+    background: var(--eigengrau);
+    color: var(--gray4);
+  }
 }
