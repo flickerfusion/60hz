@@ -155,10 +155,6 @@ main{
   border: 1px solid #F00; */
 }
 
-#single article{
-  max-width: var(--max-width);
-}
-
 section.day{
   padding: 0 0 2rem 0;
   margin: 0;
@@ -214,10 +210,10 @@ article header h2{
   font-style: normal;
   font-weight: normal;
   margin: 0;
-  padding: .3rem 1rem 0 1rem;
+  padding: .6rem 1rem 0 1rem;
 }
 
-article header h2 a, article header h2 a:visited{
+article header h2, article header h2 a, article header h2 a:visited{
   color: var(--gray3);
   text-decoration: none;
 }
@@ -307,6 +303,11 @@ article section.footnotes a.footnote-backref{
   text-rendering: optimizeLegibility;
 }
 
+#boot section{
+ margin: 1rem auto;
+ max-width: var(--max-width);
+}
+
 #boot a{
   text-decoration: none;
   color: var(--color-primary-light);
@@ -325,7 +326,7 @@ article section.footnotes a.footnote-backref{
   font-family: var(--font-raleway);
   text-transform: uppercase;
   font-weight: 200;
-  font-size: 3rem;
+  font-size: 2.9rem;
   font-style: italic;
   margin: 0 0 1.5rem 0;
   text-align: center;
@@ -333,20 +334,43 @@ article section.footnotes a.footnote-backref{
 }
 
 #boot p{
-  margin: 1rem auto;
-  max-width: var(--max-width);
-  padding: 0 1rem;
   line-height: line-height: 1.3125;
 }
 
 #boot p a{
-  font-style: italic;
+  text-decoration: underline;
+  text-decoration-color: var(--blue5);
 }
 
-@media screen and (min-width: 120ch){
+#boot .copyright{
+  font-size: .8rem;
+  color: var(--blue5);
+}
+
+@media screen and (min-width: 85ch){
+  article header h1, article header h2, article p{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  article blockquote{
+    background-position: 2.6rem 0;
+  }
+
+  article section.footnotes{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  article section.footnotes li p{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (min-width: 105ch){
   section.day{
     display: grid;
-    /* grid-template-columns: 1fr min(65ch, 100%); */
     grid-template-columns: 1fr min(65ch, 100%);
     grid-gap: 1rem;
   }
@@ -377,6 +401,11 @@ article section.footnotes a.footnote-backref{
     background-position: 0 0;
   }
 
+  article section.footnotes{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   time.calendar abbr{
     display: inherit;
   }
@@ -388,9 +417,13 @@ article section.footnotes a.footnote-backref{
   time.calendar .day{
 
   }
+
+  #single article{
+    max-width: var(--max-width);
+  }
 }
 
-@media screen and (min-width: 130ch){
+@media screen and (min-width: 115ch){
   section.day{
     grid-template-columns: 1fr 65ch .5fr;
   }
@@ -399,7 +432,7 @@ article section.footnotes a.footnote-backref{
   }
 }
 
-@media screen and (min-width: 140ch){
+@media screen and (min-width: 120ch){
   section.day{
     grid-template-columns: 1fr 65ch 1fr;
   }
