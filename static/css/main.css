@@ -246,6 +246,10 @@ article code{
   font-size: .75em;
 }
 
+article img{
+  width: 100%;
+}
+
 /* footnotes */
 /* the reference in the text */
 
@@ -305,7 +309,6 @@ article section.footnotes a.footnote-backref{
 
 #boot section{
  margin: 1rem auto;
- max-width: var(--max-width);
 }
 
 #boot a{
@@ -337,6 +340,11 @@ article section.footnotes a.footnote-backref{
   line-height: line-height: 1.3125;
 }
 
+#boot h1, #boot p{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 #boot p a{
   text-decoration: underline;
   text-decoration-color: var(--blue5);
@@ -348,7 +356,7 @@ article section.footnotes a.footnote-backref{
 }
 
 @media screen and (min-width: 85ch){
-  article header h1, article header h2, article p{
+  article header h1, article header h2, article p, #boot p{
     padding-left: 3rem;
     padding-right: 3rem;
   }
@@ -420,6 +428,13 @@ article section.footnotes a.footnote-backref{
 
   #single article{
     max-width: var(--max-width);
+  }
+
+  #boot section{
+    max-width: var(--max-width);
+  }
+  #boot p{
+    padding: 0;
   }
 }
 
