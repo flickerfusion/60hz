@@ -144,6 +144,10 @@ article blockquote p{
   color: var(--color-primary-light-gray);
 }
 
+article img{
+  width: 100%;
+}
+
 article.posts{
   margin-bottom: 4em;
 }
