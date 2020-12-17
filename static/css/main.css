@@ -9,32 +9,32 @@
 }
 
 @font-face {
-  font-family: 'PT Astra Sans';
-  src: url('../fonts/PTAstraSans-Bold.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'PT Astra Sans';
-  src: url('../fonts/PTAstraSans-Regular.woff2') format('woff2');
+  font-family: 'Public Sans';
+  src: url('../fonts/PublicSans-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'PT Astra Sans';
-  src: url('../fonts/PTAstraSans-Italic.woff2') format('woff2');
+  font-family: 'Public Sans';
+  src: url('../fonts/PublicSans-Italic.woff2') format('woff2');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'PT Astra Sans';
-  src: url('../fonts/PTAstraSans-BoldItalic.woff2') format('woff2');
+  font-family: 'Public Sans';
+  src: url('../fonts/PublicSans-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('../fonts/PublicSans-BoldItalic.woff2') format('woff2');
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -52,12 +52,12 @@
   /* Fonts */
   --font-helvetica: Helvetica Neue, Helvetica, Arial, sans-serif;
   --font-league-spartan: 'League Spartan', var(--font-helvetica);
-  --font-pt-astra: 'PT Astra Sans', var(--font-helvetica);
+  --font-public-sans: 'Public Sans', var(--font-helvetica);
   --font-raleway: 'Raleway', var(--font-helvetica);
 
-  --font-hed: var(--font-pt-astra);
-  --font-body: var(--font-pt-astra);
-  --font-default-size: clamp(18px, 2vw + 4px, 22px);
+  --font-hed: var(--font-public-sans);
+  --font-body: var(--font-public-sans);
+  --font-default-size: clamp(16px, 2vw + 4px, 18px);
 
   /* Colors */
   --eigengrau: #16161D;
@@ -112,6 +112,7 @@ body{
 
 a, a:visited{
   color: var(--color-primary-dark);
+  text-decoration-color: var(--blue5);
 }
 
 #masthead{
@@ -197,54 +198,39 @@ article{
   margin: 0 auto;
 }
 
-article h1{
+article header h1{
   font-family: var(--font-hed);
   font-size: 1.25rem;
   font-weight: normal;
-  line-height: 1.3;
+  line-height: 1.1;
+  margin: 0;
   padding: 0 1rem;
 }
 
-article h2{
+article header h2{
   font-family: var(--font-hed);
-  font-size: .8rem;
+  font-size: .75rem;
   font-style: normal;
   font-weight: normal;
-  padding: 0 1rem;
+  margin: 0;
+  padding: .3rem 1rem 0 1rem;
 }
 
-article h2 time{
-  font-style: italic;
-}
-
-a.permalink, a.vialink{
+article header h2 a, article header h2 a:visited{
+  color: var(--gray3);
   text-decoration: none;
-  visibility: hidden;
 }
 
-h1:hover a.permalink, h1:hover a.vialink, p:hover a.permalink{
-  visibility: initial;
+article header h2 .vialink{
+  font-size: .75em;
 }
 
-article h1 a.permalink{
-  font-size: 1rem;
-}
-
-article h1 a.vialink{
-  font-size: .75rem;
-}
-
-/* don't hide the permalinks on mobile. Not a perfect solution but a solution nonetheless */
-/* https://hover-pointer-media-query.glitch.me/ */
-@media(any-pointer: coarse){
-  section.day article h1 a.permalink{
-    display: initial;
-  }
+article header h2 time{
 }
 
 article p{
   font-size: 1rem;
-  line-height: 1.3125;
+  line-height: 1.5625;
   padding: 0 1rem;
 }
 
@@ -356,16 +342,15 @@ article section.footnotes a.footnote-backref{
   font-style: italic;
 }
 
-
-@media screen and (min-width: 90ch){
+@media screen and (min-width: 120ch){
   section.day{
     display: grid;
     /* grid-template-columns: 1fr min(65ch, 100%); */
-    grid-template-columns: 1fr 65ch;
+    grid-template-columns: 1fr min(65ch, 100%);
     grid-gap: 1rem;
   }
 
-  section.day header{
+  section.day > header{
     text-align: right;
   }
 
@@ -382,7 +367,7 @@ article section.footnotes a.footnote-backref{
     margin-top: 0;
   }
 
-  article h1, article h2, article p{
+  article header h1, article header h2, article p{
     padding-left: .25rem;
     padding-right: 2rem;
   }
@@ -404,11 +389,11 @@ article section.footnotes a.footnote-backref{
   }
 }
 
-@media screen and (min-width: 124ch){
+@media screen and (min-width: 130ch){
   section.day{
     grid-template-columns: 1fr 65ch .5fr;
   }
-  article h1, article h2, article p{
+  article header h1, article header h2, article p{
     padding-right: 1rem;
   }
 }
@@ -428,6 +413,7 @@ article section.footnotes a.footnote-backref{
 
   a, a:visited{
     color: var(--color-primary-light);
+    text-decoration-color: var(--gray3);
   }
 
   #masthead{

@@ -6,13 +6,15 @@
     <p>{{ .Title | markdownify }}</p>
 
     {{ else if eq .Type "links" }}
+    <header>
     <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a></h1>
     <h2>This link was published on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time></h2>
+    </header>
     {{ .Content }}
 
     {{ else }}
     <h1>{{ .Title | markdownify }}</h1>
-    <h2>This post was originally published on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time>.{{ with .Lastmod}} It was most recently updated on <time datetime="{{ dateFormat "2006-01-02" . }}">{{ dateFormat "January 2, 2006 at 3:04pm" . }}</time>{{end}}</h2>
+    <h2>This post was originally published on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time>.{{ with .Lastmod}}</time>{{end}}</h2>
     {{ .Content }}
     {{ range .Params.tags }}
     <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
