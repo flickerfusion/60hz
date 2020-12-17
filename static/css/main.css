@@ -3,12 +3,6 @@
 /* Hi Brook! */
 
 @font-face {
-  font-family: 'League Spartan';
-  src: url('../fonts/league-spartan-bold.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'Public Sans';
   src: url('../fonts/PublicSans-Regular.woff2') format('woff2');
   font-weight: normal;
@@ -41,6 +35,14 @@
 }
 
 @font-face {
+  font-family: 'Public Sans';
+  src: url('../fonts/PublicSans-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Raleway';
   src: url('../fonts/Raleway-ExtraLightItalic.woff2') format('woff2');
   font-weight: bold;
@@ -51,7 +53,6 @@
 :root{
   /* Fonts */
   --font-helvetica: Helvetica Neue, Helvetica, Arial, sans-serif;
-  --font-league-spartan: 'League Spartan', var(--font-helvetica);
   --font-public-sans: 'Public Sans', var(--font-helvetica);
   --font-raleway: 'Raleway', var(--font-helvetica);
 
@@ -174,13 +175,13 @@ section.day header{
 time.calendar{
   background: var(--color-primary-dark);
   color: var(--color-primary-light);
-  font-family: var(--font-league-spartan);
-  font-weight: normal;
-  font-size: clamp(14px, 2vw + 4px, 18px);
+  font-family: var(--font-public-sans);
+  font-weight: 800;
+  font-size: .9rem;
 
   letter-spacing: .2rem;
   text-transform: uppercase;
-  padding: 0 .5rem .2rem .5rem;
+  padding: .3rem .5rem .3rem .5rem;
   top: 1em;
 
   -webkit-font-smoothing: antialiased;
@@ -287,9 +288,9 @@ article section.footnotes a.footnote-backref{
 }
 
 #paginator a{
-  font-family: var(--font-league-spartan);
+  font-family: var(--font-public-sans);
   font-size: .9em;
-  font-weight: normal;
+  font-weight: 800;
   letter-spacing: .2rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -313,9 +314,9 @@ article section.footnotes a.footnote-backref{
 
 #boot h3{
   text-align: center;
-  font-family: var(--font-league-spartan);
-  font-size: 1rem;
-  font-weight: normal;
+  font-family: var(--font-public-sans);
+  font-size: .9rem;
+  font-weight: 800;
   letter-spacing: .2rem;
   text-transform: uppercase;
 }
