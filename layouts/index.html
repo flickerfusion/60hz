@@ -19,14 +19,19 @@
         <header>
         <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a></h1>
         <h2 class="permalink">
-          <a class="permalink" href="{{ .RelPermalink }}" title="Link to this post on Flicker Fusion"><time datetime="{{ .Date.Format "2006-01-02" }}">Posted at {{ .Date.Format "3:04pm" }}</time></a>
+          <a href="{{ .RelPermalink }}" title="Link to this post on Flicker Fusion"><time datetime="{{ .Date.Format "2006-01-02" }}">Posted at {{ .Date.Format "3:04pm" }}</time></a>
           {{ with .Params.Via }}<a href="{{ . }}" title="[via]" class="vialink">◎</a>{{ end }}
         </h2>
         </header>
         {{ .Content }}
 
       {{ else }}
+        <header>
         <h1><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
+        <h2 class="permalink">
+          <a href="{{ .RelPermalink }}" title="Link to this post on Flicker Fusion"><time datetime="{{ .Date.Format "2006-01-02" }}">Posted at {{ .Date.Format "3:04pm" }}</time></a>
+        </h2>
+        </header>
         {{ .Content }}
         {{ range .Params.tags }}
         <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>

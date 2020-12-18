@@ -206,7 +206,7 @@ article header h1{
 
 article header h2{
   font-family: var(--font-hed);
-  font-size: .75rem;
+  font-size: .9rem;
   font-style: normal;
   font-weight: normal;
   margin: 0;
@@ -235,7 +235,8 @@ article blockquote{
   margin: 1.25rem 0;
   padding: 0 1.5rem 0 .75rem;
   color: var(--blue2);
-  background: url("../images/pullquote.svg") no-repeat .5rem 0;
+  background: url("../images/pull-quote.png") no-repeat .75rem 0;
+  background-size: 13px 10px;
 }
 
 article blockquote a, article blockquote a:visited{
@@ -362,7 +363,7 @@ article section.footnotes a.footnote-backref{
   }
 
   article blockquote{
-    background-position: 2.6rem 0;
+    background-position: 2rem 0;
   }
 
   article section.footnotes{
@@ -484,7 +485,8 @@ article section.footnotes a.footnote-backref{
   }
 
   article blockquote{
-    background-image: url("../images/pullquote-dark.svg");
+    background-image: url("../images/pullquote-dark.png");
+    background-size: 13px 10px;
   }
 
   #boot{
