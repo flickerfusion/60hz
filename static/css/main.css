@@ -315,13 +315,13 @@ article section.footnotes a.footnote-backref{
 }
 
 #paginator{
-  margin: 1rem auto 2rem auto;
+  margin: 1rem auto 4rem auto;
   text-align: center;
 }
 
 #paginator a{
   font-family: var(--font-public-sans);
-  font-size: .9em;
+  font-size: .8em;
   font-weight: 800;
   letter-spacing: .2rem;
   text-transform: uppercase;
@@ -333,7 +333,7 @@ article section.footnotes a.footnote-backref{
 #boot{
   background: var(--color-primary-dark);
   color: var(--color-primary-light);
-  padding: 4rem 0;
+  padding: 2.5rem 0 2rem 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -363,7 +363,7 @@ article section.footnotes a.footnote-backref{
   font-weight: 200;
   font-size: 2.9rem;
   font-style: italic;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 3rem 0;
   text-align: center;
   line-height: .9;
 }
@@ -384,7 +384,8 @@ article section.footnotes a.footnote-backref{
 
 #boot .copyright{
   font-size: .8rem;
-  color: var(--blue5);
+  color: var(--blue4);
+  margin-top: 2rem;
 }
 
 @media screen and (min-width: 85ch){
@@ -517,7 +518,7 @@ article section.footnotes a.footnote-backref{
   }
 
   article blockquote{
-    background-image: url("../images/pullquote-dark.png");
+    background-image: url("../images/pull-quote-dark.png");
     background-size: 13px 10px;
   }
 
