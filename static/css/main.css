@@ -256,11 +256,18 @@ article form{
 }
 
 article form label{
+  color: var(--blue3);
+}
+
+article form label, article form input{
   display: block;
 }
 
 article form input, article form textarea{
   border: 1px solid var(--blue4);
+  padding: .5rem;
+  font-family: var(--font-body);
+  font-size: .9rem;
 }
 
 article form textarea{
