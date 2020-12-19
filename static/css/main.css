@@ -58,7 +58,7 @@
 
   --font-hed: var(--font-public-sans);
   --font-body: var(--font-public-sans);
-  --font-default-size: clamp(16px, 2vw + 4px, 18px);
+  --font-default-size: clamp(17px, 2vw + 4px, 19px);
 
   /* Colors */
   --eigengrau: #16161D;
@@ -131,7 +131,7 @@ a, a:visited{
   font-family: var(--font-raleway);
   text-transform: uppercase;
   font-weight: 200;
-  font-size: 5em;
+  font-size: 4.8em;
   font-style: italic;
   text-align: center;
   line-height: .9;
@@ -173,7 +173,7 @@ time.calendar{
   color: var(--color-primary-light);
   font-family: var(--font-public-sans);
   font-weight: 800;
-  font-size: .9rem;
+  font-size: .8rem;
 
   letter-spacing: .2rem;
   text-transform: uppercase;
@@ -253,10 +253,6 @@ article code{
 
 article img{
   width: 100%;
-}
-
-article form{
-
 }
 
 article form label{
@@ -398,7 +394,7 @@ article section.footnotes a.footnote-backref{
   }
 
   article blockquote{
-    background-position: 2rem 0;
+    background-position: 2.6rem 0;
   }
 
   article section.footnotes{
@@ -412,7 +408,7 @@ article section.footnotes a.footnote-backref{
   }
 }
 
-@media screen and (min-width: 105ch){
+@media screen and (min-width: 110ch){
   section.day{
     display: grid;
     grid-template-columns: 1fr min(65ch, 100%);
@@ -475,7 +471,7 @@ article section.footnotes a.footnote-backref{
   }
 }
 
-@media screen and (min-width: 115ch){
+@media screen and (min-width: 120ch){
   section.day{
     grid-template-columns: 1fr 65ch .5fr;
   }
@@ -484,7 +480,7 @@ article section.footnotes a.footnote-backref{
   }
 }
 
-@media screen and (min-width: 120ch){
+@media screen and (min-width: 125ch){
   section.day{
     grid-template-columns: 1fr 65ch 1fr;
   }
