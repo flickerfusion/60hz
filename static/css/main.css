@@ -251,6 +251,30 @@ article img{
   width: 100%;
 }
 
+article form{
+
+}
+
+article form label{
+  display: block;
+}
+
+article form input, article form textarea{
+  border: 1px solid var(--blue4);
+}
+
+article form textarea{
+  width: 100%;
+}
+
+article form button{
+  border: 1px solid var(--blue4);
+  background: var(--gray5);
+  padding: .5rem 1rem;
+  font-family: var(--font-hed);
+  color: var(--blue2);
+}
+
 /* footnotes */
 /* the reference in the text */
 
