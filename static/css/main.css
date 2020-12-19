@@ -460,6 +460,7 @@ article section.footnotes a.footnote-backref{
 
   #single article{
     max-width: var(--max-width);
+    min-height: 10rem;
   }
 
   #boot section{
