@@ -1,0 +1,10 @@
+{{ define "main" }}
+<main id="single">
+  <article class="{{ .Type }}">
+    <header>
+    <h1>{{ .Title | markdownify }}</h1>
+    </header>
+    {{ .Content }}
+  </article>
+</main>
+{{ end }}

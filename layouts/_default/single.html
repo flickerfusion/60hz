@@ -1,23 +1,29 @@
 {{ define "main" }}
-	<main>
-		<article class="{{ .Type }}">
-      {{ if eq .Type "newsletters" }}
-              <h1><a href="{{ .Permalink }}">Newsletter {{ .Slug }}</a></h1>
-              <h2>{{ .Title | markdownify }}</h2>
-              {{ .Content }}
+<main id="single">
+  <article class="{{ .Type }}">
+    {{ if eq .Type "newsletters" }}
+    <header>
+    <h1>Newsletter {{ .Slug }}</h1>
+    </header>
+    <p>{{ .Title | markdownify }}</p>
 
-            {{ else if eq .Type "links" }}
-              <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a></h1>
-              {{ .Content }}
+    {{ else if eq .Type "links" }}
+    <header>
+    <h1>{{ .Title | markdownify }}</h1>
+    <h2>This link was published on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time></h2>
+    </header>
+    {{ .Content }}
 
-            {{ else }}
-              <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
-              <time title={{ .Date.Format "Published at 3:04pm on January 2, 2006. A Monday." }}><a href="{{ .Permalink }}">{{ .Date.Format "January 2, 2006" }}</a></time>
-              {{ .Content }}
-              {{ range .Params.tags }}
-              <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-              {{ end }}
-            {{ end }}
-		</article>
-	</main>
+    {{ else }}
+    <header>
+    <h1>{{ .Title | markdownify }}</h1>
+    <h2>This post was originally published on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time>.{{ with .Lastmod}}</time>{{end}}</h2>
+    </header>
+    {{ .Content }}
+    {{ range .Params.tags }}
+    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+    {{ end }}
+  {{ end }}
+  </article>
+</main>
 {{ end }}

@@ -21,10 +21,19 @@
 			{
 				"id": "{{ .Permalink }}",
 				"title": "{{ .Title | markdownify }}",
-				"content_html": {{ .Content | jsonify }},
-				"url": "{{ .Permalink }}",
-        {{ if isset .Params "link" }}"external_url": "{{ .Params.Link }}",{{ end }}
+
+        {{ if isset .Params "link" }}
+        "external_url": "{{ .Params.Link }}",
+        "content_html": {{ (printf "%v<p><a href=\"%v\">%v</a></p>" .Content .Permalink .Permalink) | jsonify  }},
+
+        {{ else }}
+        "url": "{{ .Permalink }}",
+        "content_html": {{ .Content | jsonify }},
+        {{ end }}
 				"date_published": "{{ .Date }}"
+        {{ if .Lastmod }}
+        ,"date_modified": "{{ .Lastmod }}"
+        {{ end }}
 			}
 		{{ end }}
     ]

@@ -1,14 +1,6 @@
-<header>
+<header id="masthead">
   <div class="wrapper">
-	<h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
-	{{ with .Site.Menus.main }}
-	<nav>
-		<ul>
-			{{ range . }}
-			<li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-			{{ end }}
-		</ul>
-	</nav>
-	{{ end }}
+	<h1><a href="/">{{ .Site.Title }}</a></h1>
+
   </div>
 </header>

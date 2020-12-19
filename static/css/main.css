@@ -1,371 +1,532 @@
 @import url("normalize.css");
 
-/* Here we go! */
+/* Hi Brook! */
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('../fonts/PublicSans-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('../fonts/PublicSans-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('../fonts/PublicSans-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('../fonts/PublicSans-BoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('../fonts/PublicSans-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/Raleway-ExtraLightItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
 
 :root{
+  /* Fonts */
   --font-helvetica: Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-public-sans: 'Public Sans', var(--font-helvetica);
+  --font-raleway: 'Raleway', var(--font-helvetica);
+
+  --font-hed: var(--font-public-sans);
+  --font-body: var(--font-public-sans);
+  --font-default-size: clamp(16px, 2vw + 4px, 18px);
+
+  /* Colors */
   --eigengrau: #16161D;
+  --white: #FFF;
 
-  --font-hed: var(--font-helvetica);
-  --font-body: Georgia, serif;
-  --color-primary-dark: var(--eigengrau);
-  --color-primary-light: #FFF;
-  --color-primary-gray: #8A8A8E;
-  --color-primary-light-gray: #C5C5C6;
-  --color-accent1: #F45946;
-  --color-accent2: #829464;
-  --color-accent3: #2578A8;
-  --color-accent4: #523249;
+  /* Grays, dark to light */
+  --gray1: var(--eigengrau);
+  --gray2: #33333C;
+  --gray3: #86898D;
+  --gray4: #D8D8D7;
+  --gray5: #F3F4F5;
 
-  --color-tertiary1: #548686;
-  --color-tertiary2: #3C5579;
+  /* Blues, dark to light */
+  --blue1: #364159;
+  --blue2: #47587D;
+  --blue3: #586D9C;
+  --blue4: #91A7D6;
+  --blue5: #9EAFD6;
 
+  /* Orange, dark to light */
+
+  --color-primary-dark: var(--blue1);
+  --color-primary-light: var(--gray5);
+  --color-primary-light-rgb: 243,244,245;
+  --color-primary-dark-rgb: 55,65,89;
+
+  /* Layout */
+  /* Giving ch units a go, still a bit voodoo as Eric explains:
+  https://meyerweb.com/eric/thoughts/2018/06/28/what-is-the-css-ch-unit/ */
+  --max-width: 65ch;
+
+  /* Animations */
   --transition-timing: 0.4s;
 }
 
 html{
-  scroll-behavior: smooth; /* ... (featuring Carlos Santana) */
+  scroll-behavior: smooth; /* (featuring Rob Thomas of Matchbox Twenty) */
+  font-size: var(--font-default-size);
 }
 
 body{
-  background: var(--color-primary-dark);
-  color: var(--color-primary-light);
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
   font-family: var(--font-body);
   font-style: normal;
+
   font-variant: normal;
   line-height: 1.2;
-  padding: 0.5em 1.2em;
   margin: 0;
   padding: 0;
 }
 
-header, main, footer{
-  padding: 0 1.2em;
+a, a:visited{
+  color: var(--color-primary-dark);
+  text-decoration-color: var(--blue5);
 }
 
-header{
-  margin-left: 1.2em;
-  margin-right: 1.2em;
+#masthead{
+  background-color: var(--color-primary-light);
+  /* you kids with your multiple background gradients and SVGs */
+  /* thanks, https://www.heropatterns.com ! */
+  background-image: linear-gradient(to top, var(--color-primary-light), rgba(var(--color-primary-light-rgb),0)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23364159' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  border-bottom: 1px solid var(--color-primary-light);
+  border-top: 1px solid var(--color-primary-dark);
+  margin: 0;
   padding: 0;
 }
 
-a{
-  color: var(--color-primary-light);
-  text-decoration-color: var(--color-accent3);
+#masthead h1{
+  font-family: var(--font-raleway);
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 5em;
+  font-style: italic;
+  text-align: center;
+  line-height: .9;
+  -webkit-user-select: text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  margin: 3rem 0 4rem 0;
+  padding: 0;
 }
 
-header{
-  font-family: var(--font-hed);
-  display: flex;
-  flex-direction: column;
-  border-bottom: 2px solid var(--color-primary-light);
-}
-
-header a{
+#masthead h1 a{
   text-decoration: none;
 }
 
-header h1{
-  font-size: 3em;
-  margin: 0;
-  flex: 1;
+main{
+  margin: 0 auto;
+  padding: 0;
+  /* display: grid;
+  max-width: calc(var(--max-width) + 20ch);
+  border: 1px solid #F00; */
 }
 
-header nav{
-  display: flex;
-  flex: 1;
-  margin: .5em 0 0 0;
-}
-
-header nav ul{
-  list-style: none;
-  display: flex;
+section.day{
+  padding: 0 0 2rem 0;
   margin: 0;
   width: 100%;
-  padding: 0;
-  justify-content: space-between;
+  position: relative;
+  border-top: 1px solid transparent; /* it's 2020 and we're still collapsing margins with hackery  */
+  border-bottom: 1px solid transparent; /* it's 2020 and we're still collapsing margins with hackery  */
 }
 
-header nav ul li{
+section.day header{
+
+}
+
+time.calendar{
+  background: var(--color-primary-dark);
+  color: var(--color-primary-light);
+  font-family: var(--font-public-sans);
+  font-weight: 800;
+  font-size: .9rem;
+
+  letter-spacing: .2rem;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  align-content: space-around;
+  padding: .3rem .5rem .3rem .5rem;
+  top: 1em;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-main{
-  margin-top: 2em;
-  transition: margin var(--transition-timing);
+time.calendar abbr{
+  display: none;
 }
 
 article{
-  margin: 1em 0 3em 0;
+  /* don't pad the article, pad the heds/grafs so the quotation will stick out. Yes, really */
+  padding: 1rem 0;
+  margin: 0 auto;
 }
 
-article h1{
+article header h1{
   font-family: var(--font-hed);
-  font-feature-settings: "kern", "liga";
-  font-size: 1.5em;
-  font-weight: 700;
-  line-height: 1.4;
-  margin: 0 0 .2em 0;
+  font-size: 1.25rem;
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0 1rem;
 }
 
-article h2{
-  font-size: 1.25em;
-  font-weight: 400;
-}
-
-article time{
+article header h2{
   font-family: var(--font-hed);
-  font-size: .9em;
+  font-size: .9rem;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+  padding: .6rem 1rem 0 1rem;
+}
+
+article header h2, article header h2 a, article header h2 a:visited{
+  color: var(--gray3);
+  text-decoration: none;
+}
+
+article header h2 .vialink{
+  font-size: .75em;
+}
+
+article header h2 time{
 }
 
 article p{
-  font-size: 1.1em;
-  font-family: var(--font-body);
-  font-feature-settings: "kern", "liga", "onum";
-  line-height: 1.5;
-}
-
-article p a{
-  text-decoration: underline;
-  text-decoration-thickness: .075em;
+  font-size: 1rem;
+  line-height: 1.5625;
+  padding: 0 1rem;
 }
 
 article blockquote{
-  border-left: 2px solid var(--color-primary-light-gray);
-  padding-left: 1em;
-  margin: 0 1em 0 1em;
+  margin: 1.25rem 0;
+  padding: 0 1.5rem 0 .75rem;
+  color: var(--blue2);
+  background: url("../images/pull-quote.png") no-repeat .75rem 0;
+  background-size: 13px 10px;
 }
 
-article blockquote p{
-  font-size: 1em;
-  color: var(--color-tertiary2);
-  color: var(--color-primary-light-gray);
+article blockquote a, article blockquote a:visited{
+  color: var(--blue2);
 }
 
 article img{
   width: 100%;
 }
 
-article.posts{
-  margin-bottom: 4em;
-}
-
-article.posts h1{
-  border-bottom: 3px solid var(--color-primary-light);
-}
-
-article.posts h1 a{
-  border-bottom: 3px solid var(--color-primary-light);
-  display: inline;
-  padding-bottom: 5px;
-  padding-right: 2px;
-  text-decoration: none;
-}
-
-article.posts time{
-  display: inline-block;
-  margin: .5em 0 1em 0;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-
-article.posts time a{
-  text-decoration: none;
-}
-
-article.newsletters{
-}
-
-article.links{
-  margin-bottom: 3em;
-}
-
-article.links h1{
-  font-size: 1.4em;
-  text-decoration-thickness: .1em;
-}
-
-article.links h1 a.ff_permalink{
+article code{
   font-size: .75em;
-  text-decoration: none;
-  color: var(--color-primary-light-gray);
+}
+
+article img{
+  width: 100%;
+}
+
+article form{
 
 }
 
-article a.footnote-backref{
-  font-size: .75em;
+article form label{
+  color: var(--blue3);
+}
+
+article form label, article form input{
+  display: block;
+}
+
+article form input, article form textarea{
+  border: 1px solid var(--blue4);
+  padding: .5rem;
+  font-family: var(--font-body);
+  font-size: .9rem;
+}
+
+article form textarea{
+  width: 100%;
+}
+
+article form button{
+  border: 1px solid var(--blue4);
+  background: var(--gray5);
+  padding: .5rem 1rem;
+  font-family: var(--font-hed);
+  color: var(--blue2);
+}
+
+/* footnotes */
+/* the reference in the text */
+
+article sup{
+  font-size: .7em;
+  padding-left: 2px;
+}
+
+article a.footnote-ref{
+  text-decoration: none;
+  color: var(--blue2);
+}
+
+/* the actual footnote at the end of the article */
+article section.footnotes{
+  padding: .25rem 0 1rem 0;
+}
+
+article section.footnotes hr{
+  display: none;
+}
+
+article section.footnotes li{
+  font-size: .9em;
+  color: var(--blue2);
+}
+
+article section.footnotes a.footnote-backref{
+  font-size: .75rem;
   text-decoration: none;
 }
 
 #paginator{
-  font-family: var(--font-hed);
-  font-weight: 700;
-  letter-spacing: .05em;
+  margin: 1rem auto 2rem auto;
+  text-align: center;
+}
+
+#paginator a{
+  font-family: var(--font-public-sans);
+  font-size: .9em;
+  font-weight: 800;
+  letter-spacing: .2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+#boot{
+  background: var(--color-primary-dark);
+  color: var(--color-primary-light);
+  padding: 4rem 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#boot section{
+ margin: 1rem auto;
+}
+
+#boot a{
+  text-decoration: none;
+  color: var(--color-primary-light);
+}
+
+#boot h3{
+  text-align: center;
+  font-family: var(--font-public-sans);
+  font-size: .9rem;
+  font-weight: 800;
+  letter-spacing: .2rem;
   text-transform: uppercase;
 }
 
-footer{
-  border-top: 2px solid var(--color-primary-light);
-  margin-top: 1em;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  font-family: var(--font-hed);
-  font-weight: 700;
+#boot h1{
+  font-family: var(--font-raleway);
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 2.9rem;
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  line-height: .9;
 }
 
-@media screen and (min-width: 48em){
-  header{
-    margin: 0 3em;
-    flex-direction: row;
+#boot p{
+  line-height: line-height: 1.3125;
+}
+
+#boot h1, #boot p{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#boot p a{
+  text-decoration: underline;
+  text-decoration-color: var(--blue5);
+}
+
+#boot .copyright{
+  font-size: .8rem;
+  color: var(--blue5);
+}
+
+@media screen and (min-width: 85ch){
+  article header h1, article header h2, article p, #boot p{
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
-  header h1{
-    flex: 20%;
+  article blockquote{
+    background-position: 2rem 0;
   }
 
-  header .wrapper{
-    display: flex;
-    flex: 1;
+  article section.footnotes{
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
-  header nav{
-    margin-left: .75em;
-  }
-
-  header nav ul li{
-    padding-top: 1.9em;
-    padding-bottom: 0;
-  }
-
-  header nav ul li a:hover{
-    border-bottom: 4px solid var(--color-primary-light);
-  }
-
-  main{
-    margin-top: 3em;
-    margin-bottom: 1.6em;
-    padding-left: 3em;
-    padding-right: 3em;
-  }
-
-  article h1, article.links h1{
-    font-size: 1.5em;
-  }
-
-  article.posts h1 a{
-    padding-bottom: 5px;
-  }
-
-  article.links h1 a.ff_permalink{
-    font-size: .6em;
-  }
-
-  article p{
-    font-size: 1.2em;
-    line-height: 1.6;
-  }
-
-  article blockquote p{
-    font-size: 1.1em;
-  }
-
-  article a.footnote-backref{
-    font-size: .6em;
+  article section.footnotes li p{
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
-@media screen and (min-width: 64em){
-  /* gridding */
-  body{
+@media screen and (min-width: 105ch){
+  section.day{
     display: grid;
-    grid-template-columns: [left-margin] auto [the-business] 42em [sidebar] 22em [right-margin] auto;
-    grid-template-rows: auto 10em;
+    grid-template-columns: 1fr min(65ch, 100%);
+    grid-gap: 1rem;
   }
 
-  header{
-    margin: 1em 0 0 0;
-    grid-column-start: sidebar;
-    grid-row-start: 1;
-    position: relative;
-    border-bottom: none;
+  section.day > header{
+    text-align: right;
   }
 
-  header div.wrapper{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
+  section.day section.articles{
+    /* grid-column-start: span 5; */
+    grid-column: 2;
   }
 
-  header h1{
-    flex: 1;
+  article{
+    padding: 0 0 2rem 0;
   }
 
-  header nav{
-    margin: 1em 0 0 0;
-    flex: 1;
+  article h1{
+    margin-top: 0;
   }
 
-  header nav ul li{
+  article header h1, article header h2, article p{
+    padding-left: .25rem;
+    padding-right: 2rem;
+  }
+
+  article blockquote{
+    background-position: 0 0;
+  }
+
+  article section.footnotes{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  time.calendar abbr{
+    display: inherit;
+  }
+
+  time.calendar .month{
+    display: none;
+  }
+
+  time.calendar .day{
+
+  }
+
+  #single article{
+    max-width: var(--max-width);
+    min-height: 10rem;
+  }
+
+  #boot section{
+    max-width: var(--max-width);
+  }
+  #boot p{
     padding: 0;
   }
+}
 
-  main{
-    margin: 1em 0 0 0;
-    padding: 0 2em 0 2em;
-    grid-column-start: the-business;
-    grid-row-start: 1;
+@media screen and (min-width: 115ch){
+  section.day{
+    grid-template-columns: 1fr 65ch .5fr;
   }
-
-  main article.links{
-    padding-top: .2em;
-  }
-
-  footer{
-    grid-row-start: 2;
-    grid-column-start: left-margin;
-    grid-column-end: 5;
+  article header h1, article header h2, article p{
+    padding-right: 1rem;
   }
 }
 
-/* start with a dark color scheme and switch to light to avoid flashing people with white at night. Is that a thing? */
-@media screen and (prefers-color-scheme: light) {
-  body {
-    background-color: var(--color-primary-light);
-    color: var(--color-primary-dark);
+@media screen and (min-width: 120ch){
+  section.day{
+    grid-template-columns: 1fr 65ch 1fr;
+  }
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+  body{
+    background: var(--color-primary-dark);
+    color: var(--color-primary-light);
   }
 
-  header {
-    border-bottom-color: var(--color-primary-dark);
+  a, a:visited{
+    color: var(--color-primary-light);
+    text-decoration-color: var(--gray3);
   }
 
-  header nav ul li a:hover{
-    border-bottom-color: var(--color-primary-dark);
+  #masthead{
+    background-color: var(--color-primary-dark);
+    /* you kids with your multiple background gradients and SVGs */
+    /* thanks, https://www.heropatterns.com ! */
+    background-image: linear-gradient(to top, var(--color-primary-dark), rgba(var(--color-primary-dark-rgb),0)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23f3f4f5' fill-opacity='0.6' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    border-bottom: var(--color-primary-dark);
   }
 
-  a, article p a{
-    color: var(--color-primary-dark);
-    text-decoration-color: var(--color-accent1);
+  time.calendar{
+    background: var(--eigengrau);
+    color: var(--color-primary-light);
   }
 
-  article blockquote p{
-    color: var(--color-tertiary2);
+
+  article blockquote p, article blockquote a, article blockquote a:visited, article section.footnotes li{
+    color: var(--gray4);
   }
 
-  article.posts h1{
-    border-bottom-color: var(--color-primary-dark);
+  article blockquote{
+    background-image: url("../images/pullquote-dark.png");
+    background-size: 13px 10px;
   }
 
-  article.posts h1 a{
-    border-bottom-color: var(--color-primary-dark);
-  }
-
-  article.links h1 a.ff_permalink:hover{
-    color: var(--color-primary-dark);
-  }
-
-  footer{
-    border-top: 2px solid var(--color-primary-dark);
+  #boot{
+    background: var(--eigengrau);
+    color: var(--gray4);
   }
 }
