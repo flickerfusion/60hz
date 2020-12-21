@@ -27,6 +27,7 @@
 
   <!-- siiiiiigh Twitter -->
   <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/images/ff-square.png" />
   {{ if (isset $.Site.Params "twitter") }}
     {{ if (isset $.Site.Params.Twitter "site") }}
       <meta name="twitter:site" content="{{ $.Site.Params.Twitter.site }}" />
@@ -35,6 +36,9 @@
       <meta name="twitter:creator" content="{{ $.Site.Params.Twitter.creator }}" />
     {{ end }}
   {{ end }}
+  <meta name="twitter:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+  <meta name="twitter:description"  content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+
 
   <!-- fine, here's some OG garbage -->
   <meta property="og:locale" content="{{ $.Site.Language.Lang }}" />
@@ -46,7 +50,7 @@
   {{ if isset .Params "cover" }}
     <meta property="og:image" content="{{ .Param "cover" | absURL }}">
   {{ else }}
-    <meta property="og:image" content="/images/social-share.png">
+    <meta property="og:image" content="/images/ff-square.png">
     <meta property="og:image:width" content="1024">
     <meta property="og:image:height" content="1024">
   {{ end }}
