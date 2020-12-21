@@ -38,12 +38,12 @@
   {{ if isset .Params "cover" }}
     <meta property="og:image" content="{{ .Param "cover" | absURL }}">
   {{ else }}
-    <meta property="og:image" content="/images/ff-square.png">
+    <meta property="og:image" content="{{.Site.BaseURL}}images/ff-square.png">
   {{ end }}
 
   <!-- siiiiiigh Twitter -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:image" content="/images/ff-square.png" />
+  <meta name="twitter:image" content="{{.Site.BaseURL}}images/ff-square.png" />
   {{ if (isset $.Site.Params "twitter") }}
     {{ if (isset $.Site.Params.Twitter "site") }}
       <meta name="twitter:site" content="{{ $.Site.Params.Twitter.site }}" />
