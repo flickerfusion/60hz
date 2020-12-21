@@ -13,14 +13,6 @@
   {{ $items := where site.RegularPages "Type" "in" site.Params.mainSections }}
   {{ range $i, $e := first 20 $items }}
   <entry>
-<<<<<<< HEAD
-    <title>{{ .Title | markdownify }}</title>
-    <link href="{{ .Permalink }}"/>
-    <id>{{ .Permalink }}</id>
-    <updated>{{ .Date }}</updated>
-
-    <content type="html"><![CDATA[{{ .Content }}]]></content>
-=======
     <title type="html"><![CDATA[{{ .Title | markdownify }}]]></title>
     {{ if eq .Type "links" }}
     <link href="{{ .Params.Link }}" />
@@ -39,7 +31,6 @@
     <p><a href="{{ .Permalink }}">{{ .Permalink }}</a></content></p>
     {{ end }}
     ]]></content>
->>>>>>> dec-2020
   </entry>
   {{ end }}
 
