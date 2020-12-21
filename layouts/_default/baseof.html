@@ -59,9 +59,13 @@
   {{ end }}
 </head>
 <body>
-	{{ partial "header" . }}
+	{{ block "header" . }}
+    {{ partial "header" . }}
+  {{ end }}
 	{{ block "main" . }}{{ end }}
-	{{ partial "footer" . }}
+	{{ block "footer" . }}
+    {{ partial "footer" . }}
+  {{ end }}
 
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d5bfd8478a2c44faa39dc0b871aee247"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

@@ -1,3 +1,12 @@
+{{ define "header"}}
+<header id="masthead">
+  <div class="wrapper">
+  <h1><a href="#boot">{{ .Site.Title }}</a></h1>
+
+  </div>
+</header>
+{{ end }}
+
 {{ define "main" }}
 <main>
 	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
