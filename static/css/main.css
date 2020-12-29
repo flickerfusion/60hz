@@ -191,7 +191,7 @@ time.calendar abbr{
 
 article{
   /* don't pad the article, pad the heds/grafs so the quotation will stick out. Yes, really */
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   margin: 0 auto;
 }
 
@@ -229,6 +229,7 @@ article p{
   font-size: 1rem;
   line-height: 1.5625;
   padding: 0 1rem;
+  margin: .5rem 0 1.25rem 0;
 }
 
 article blockquote{
@@ -389,18 +390,13 @@ article section.footnotes a.footnote-backref{
 }
 
 @media screen and (min-width: 85ch){
-  article header h1, article header h2, article p, #boot p{
-    padding-left: 3rem;
-    padding-right: 3rem;
+  article header h1, article header h2, article p, #boot p, article section.footnotes{
+    padding-left: 2.3rem;
+    padding-right: 2.3rem;
   }
 
   article blockquote{
-    background-position: 2.6rem 0;
-  }
-
-  article section.footnotes{
-    padding-left: 3rem;
-    padding-right: 3rem;
+    background-position: 2rem 0;
   }
 
   article section.footnotes li p{
