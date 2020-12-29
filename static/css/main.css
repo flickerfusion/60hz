@@ -483,7 +483,7 @@ article section.footnotes a.footnote-backref{
   }
 }
 
-
+/* D A R K M O D E */
 @media screen and (prefers-color-scheme: dark) {
   body{
     background: var(--color-primary-dark);
@@ -508,8 +508,7 @@ article section.footnotes a.footnote-backref{
     color: var(--color-primary-light);
   }
 
-
-  article blockquote p, article blockquote a, article blockquote a:visited, article section.footnotes li{
+  article blockquote p, article blockquote a, article blockquote a:visited, article section.footnotes li, article sup a, article sup a:visited{
     color: var(--gray4);
   }
 
