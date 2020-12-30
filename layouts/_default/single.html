@@ -20,9 +20,6 @@
     <h2>Posted on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time>.{{ with .Lastmod}}</time>{{end}}</h2>
     </header>
     {{ .Content }}
-    {{ range .Params.tags }}
-    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-    {{ end }}
   {{ end }}
   </article>
 </main>

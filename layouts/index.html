@@ -41,9 +41,6 @@
         </h2>
         </header>
         {{ .Content }}
-        {{ range .Params.tags }}
-        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-      {{ end }}
     {{ end }}
     </article>
     {{ end }}
