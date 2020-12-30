@@ -1,0 +1,12 @@
+<header>
+  <h1><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
+  <h2 class="permalink">
+    <a href="{{ .RelPermalink }}" title="Link to this post on Flicker Fusion"><time datetime="{{ .Date.Format "2006-01-02" }}">Posted at {{ .Date.Format "3:04pm" }}</time></a>
+  </h2>
+</header>
+{{ .Content }}
+{{ if .Params.tags }}
+<footer>
+  <h2>Read more: {{ range .Params.tags }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</h2>
+</footer>
+{{ end }}

@@ -1,0 +1,23 @@
+{{ define "main" }}
+<main id="list">
+  <section class="articles">
+  <h1>Posts about <em>{{ .Title }}</em></h1>
+
+  {{ range .Paginator.Pages }}
+  <article class="{{ .Type }}">
+    {{ if eq .Type "newsletters" }}
+      {{ partial "newsletter" . }}
+
+    {{ else if eq .Type "links" }}
+      {{ partial "link" . }}
+
+    {{ else }}
+      {{ partial "post" . }}
+  {{ end }}
+  </article>
+  {{ end }}
+
+  {{ partial "pagination.html" . }}
+  </section>
+</main>
+{{ end }}
