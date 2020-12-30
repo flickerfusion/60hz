@@ -32,6 +32,11 @@
         </h2>
         </header>
         {{ .Content }}
+        {{ if .Params.tags }}
+        <footer>
+          <h2>Read more: {{ range .Params.tags }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</h2>
+        </footer>
+        {{ end }}
 
       {{ else }}
         <header>
@@ -41,9 +46,11 @@
         </h2>
         </header>
         {{ .Content }}
-        {{ range .Params.tags }}
-        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-      {{ end }}
+        {{ if .Params.tags }}
+        <footer>
+          <h2>Read more: {{ range .Params.tags }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</h2>
+        </footer>
+        {{ end }}
     {{ end }}
     </article>
     {{ end }}
