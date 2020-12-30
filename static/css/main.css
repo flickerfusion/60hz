@@ -189,6 +189,12 @@ time.calendar abbr{
   display: none;
 }
 
+#list .articles > h1{
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin: 0;
+}
+
 article{
   /* don't pad the article, pad the heds/grafs so the quotation will stick out. Yes, really */
   padding: 1.5rem 0;
@@ -459,13 +465,13 @@ article section.footnotes a.footnote-backref{
     display: none;
   }
 
-  time.calendar .day{
-
-  }
-
-  #single article{
+  #single article, #list .articles{
     max-width: var(--max-width);
     min-height: 10rem;
+  }
+
+  #list .articles{
+    margin: 0 auto;
   }
 
   #boot section{
