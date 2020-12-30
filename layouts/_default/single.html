@@ -5,7 +5,7 @@
     <header>
     <h1>Newsletter {{ .Slug }}</h1>
     </header>
-    <p>{{ .Title | markdownify }}</p>
+    {{ .Content }}
 
     {{ else if eq .Type "links" }}
     <header>
@@ -13,6 +13,11 @@
     <h2>Posted on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time>{{ with .Params.via }} • <a href="{{ . }}">via</a>{{ end }}</h2>
     </header>
     {{ .Content }}
+    {{ if .Params.tags }}
+    <footer>
+      <h2>Read more: {{ range .Params.tags }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</h2>
+    </footer>
+    {{ end }}
 
     {{ else }}
     <header>
@@ -20,8 +25,10 @@
     <h2>Posted on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time>.{{ with .Lastmod}}</time>{{end}}</h2>
     </header>
     {{ .Content }}
-    {{ range .Params.tags }}
-    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+    {{ if .Params.tags }}
+    <footer>
+      <h2>Read more: {{ range .Params.tags }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</h2>
+    </footer>
     {{ end }}
   {{ end }}
   </article>
