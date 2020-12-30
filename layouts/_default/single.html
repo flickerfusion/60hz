@@ -5,7 +5,7 @@
     <header>
     <h1>Newsletter {{ .Slug }}</h1>
     </header>
-    <p>{{ .Title | markdownify }}</p>
+    {{ .Content }}
 
     {{ else if eq .Type "links" }}
     <header>
