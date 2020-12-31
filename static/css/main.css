@@ -191,8 +191,9 @@ time.calendar abbr{
 
 #list .articles > h1{
   font-size: 1.5rem;
-  font-weight: normal;
+  font-weight: bold;
   margin: 0;
+  padding: 0 1rem;
 }
 
 article{
@@ -404,7 +405,7 @@ article section.footnotes a.footnote-backref{
 }
 
 @media screen and (min-width: 85ch){
-  article header, article footer, article p, #boot p, article section.footnotes{
+  article header, article footer, article p, #boot p, article section.footnotes, #list .articles > h1{
     padding-left: 2.3rem;
     padding-right: 2.3rem;
   }
@@ -435,6 +436,10 @@ article section.footnotes a.footnote-backref{
     grid-column: 2;
   }
 
+  #list .articles > h1{
+    margin-bottom: 1.5rem;
+  }
+
   article{
     padding: 0 0 2rem 0;
   }
@@ -443,7 +448,7 @@ article section.footnotes a.footnote-backref{
     margin-top: 0;
   }
 
-  article header, article header, article p, article footer{
+  article header, article header, article p, article footer, #list .articles > h1, #boot p{
     padding-left: .25rem;
     padding-right: 2rem;
   }
@@ -476,9 +481,6 @@ article section.footnotes a.footnote-backref{
 
   #boot section{
     max-width: var(--max-width);
-  }
-  #boot p{
-    padding: 0;
   }
 }
 
@@ -529,6 +531,10 @@ article section.footnotes a.footnote-backref{
   article blockquote{
     background-image: url("../images/pull-quote-dark.png");
     background-size: 13px 10px;
+  }
+
+  article footer h2 a, article footer h2 a:visited{
+    color: var(--gray4);
   }
 
   #boot{
