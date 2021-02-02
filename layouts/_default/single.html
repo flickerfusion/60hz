@@ -10,7 +10,12 @@
 
     {{ else if eq .Type "links" }}
     <header>
-    <h1><a href="{{ .Params.link }}">{{ .Title | markdownify }}</a></h1>
+    {{ $t := time (.Date.Format "2006-01-02") }}
+    {{ if $t.After (time "2021-01-30") }}
+      <h1>{{ .Title | markdownify }}</h1>
+    {{ else }}
+      <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a></h1>
+    {{ end }}
     <h2>Posted on <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006 at 3:04pm" }}</time>{{ with .Params.via }} • <a href="{{ . }}">via</a>{{ end }}</h2>
     </header>
     {{ .Content }}
