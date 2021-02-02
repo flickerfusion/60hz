@@ -1,6 +1,6 @@
 <header>
 {{ $t := time (.Date.Format "2006-01-02") }}
-{{ if $t.After (time "2021-01-30") }}
+{{ if $t.After (time "2021-01-27") }}
   <h1><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
 {{ else }}
   <h1><a href="{{ .Params.Link }}">{{ .Title | markdownify }}</a></h1>
